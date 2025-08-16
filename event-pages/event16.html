@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentals of C Programming Workshop - SVPCET ACM Student Chapter</title>
+    <meta name="description" content="Online 3-hour workshop covering C programming fundamentals with Code Arena-24 competition preparation and hands-on coding practice.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-scrolled" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <img src="images/svpcet-acm-logo.png" alt="ACM SVPCET Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                </div>
+                <div class="brand-text">
+                    <h1>ACM SVPCET</h1>
+                    <p>Student Chapter</p>
+                </div>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#about" class="nav-link">About</a>
+                <a href="../index.html#domains" class="nav-link">Domains</a>
+                <a href="../events.html" class="nav-link">Events</a>
+                <a href="../team.html" class="nav-link">Team</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <button class="btn btn-primary">Join Us</button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Hero -->
+    <section class="event-hero workshop-hero">
+        <div class="container">
+            <div class="event-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="events.html">Events</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>C Programming Fundamentals Workshop</span>
+                </div>
+                <div class="event-status-badge completed">
+                    <i class="fas fa-check-circle"></i>
+                    Event Completed
+                </div>
+                <h1>Fundamentals of C Programming Workshop</h1>
+                <p class="event-subtitle">Online workshop focused on C programming fundamentals with Code Arena-24 competition preparation and practical coding exercises</p>
+                
+                <div class="event-meta-info">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <strong>Date</strong>
+                            <span>September 29, 2024</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Time</strong>
+                            <span>3:00 PM - 6:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <strong>Mode</strong>
+                            <span>Online (Google Meet)</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <strong>Participants</strong>
+                            <span>136 Students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="event-hero-image">
+                <div class="image-container" style="position: relative; width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden;">
+                    <img 
+                        src="../images/events/c-programming-workshop.jpg" 
+                        alt="Fundamentals of C Programming Workshop"
+                        style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="event-details">
+        <div class="container">
+            <div class="event-content">
+                <div class="event-main">
+                    <div class="section">
+                        <h2>About the Workshop</h2>
+                        <p>The Fundamentals of C Programming Workshop was organized under the ACM Student Chapter of the Computer Engineering Department to provide foundational knowledge of C programming. The primary objective was to help participants, especially first-year students, prepare for the upcoming Code Arena competition.</p>
+                        
+                        <p>This online workshop focused on key programming concepts, debugging techniques, and solving coding problems in C. The session was highly interactive, with participants actively engaging through the chat box and demonstrating strong enthusiasm for learning programming fundamentals.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Objectives</h2>
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>C Programming Foundations</h4>
+                                    <p>Master the basics of C programming language and core concepts</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Code Arena Preparation</h4>
+                                    <p>Prepare participants for the upcoming Code Arena-24 competition</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-bug"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Debugging Skills</h4>
+                                    <p>Learn effective debugging techniques and problem-solving approaches</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Environment Setup</h4>
+                                    <p>Hands-on demonstrations of VS Code and MinGW compiler setup</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Topics Covered</h2>
+                        <div class="problem-statements">
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-play-circle"></i> C Programming Basics</h4>
+                                    <span class="difficulty easy">Fundamentals</span>
+                                </div>
+                                <p>Introduction to C programming language, syntax, data types, variables, and basic programming constructs.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Syntax</span>
+                                    <span class="tag">Data Types</span>
+                                    <span class="tag">Variables</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-cogs"></i> Compilation & Debugging</h4>
+                                    <span class="difficulty medium">Technical</span>
+                                </div>
+                                <p>Learn the process of writing, compiling, and debugging C programs with practical demonstrations and best practices.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Compilation</span>
+                                    <span class="tag">Debugging</span>
+                                    <span class="tag">Error Handling</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-desktop"></i> Environment Setup</h4>
+                                    <span class="difficulty medium">Setup</span>
+                                </div>
+                                <p>Step-by-step demonstrations on setting up coding environments using VS Code and MinGW compiler for C programming.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">VS Code</span>
+                                    <span class="tag">MinGW</span>
+                                    <span class="tag">IDE Setup</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-puzzle-piece"></i> Problem Solving</h4>
+                                    <span class="difficulty hard">Practical</span>
+                                </div>
+                                <p>Real-world problem-solving exercises using C programming with focus on logical thinking and algorithm development.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Logic Building</span>
+                                    <span class="tag">Algorithms</span>
+                                    <span class="tag">Practice</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Code Arena-24 Connection</h2>
+                        <div class="prizes-section">
+                            <div class="prize-pool">
+                                <h3>Preparing for Code Arena Competition</h3>
+                            </div>
+                            <div class="prizes-grid">
+                                <div class="prize-card winner-first">
+                                    <div class="prize-icon">🎯</div>
+                                    <h4>Competition Prep</h4>
+                                    <div class="prize-amount">Strategic Focus</div>
+                                    <ul class="prize-benefits">
+                                        <li>Contest Format Overview</li>
+                                        <li>Problem-solving Strategies</li>
+                                        <li>Time Management Tips</li>
+                                        <li>Coding Best Practices</li>
+                                    </ul>
+                                </div>
+                                <div class="prize-card winner-second">
+                                    <div class="prize-icon">⚡</div>
+                                    <h4>Skill Building</h4>
+                                    <div class="prize-amount">Core Concepts</div>
+                                    <ul class="prize-benefits">
+                                        <li>Algorithm Design</li>
+                                        <li>Code Optimization</li>
+                                        <li>Debug Techniques</li>
+                                        <li>Efficient Coding</li>
+                                    </ul>
+                                </div>
+                                <div class="prize-card winner-third">
+                                    <div class="prize-icon">💻</div>
+                                    <h4>Practical Training</h4>
+                                    <div class="prize-amount">Hands-on</div>
+                                    <ul class="prize-benefits">
+                                        <li>Live Coding Sessions</li>
+                                        <li>Problem Demonstrations</li>
+                                        <li>Q&A Interactions</li>
+                                        <li>Real-time Feedback</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Highlights</h2>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../images/events/c-workshop-session1.jpg" alt="Online Workshop Session">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/c-workshop-coding.jpg" alt="Live Coding Demonstration">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/c-workshop-interaction.jpg" alt="Interactive Q&A Session">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/c-workshop-setup.jpg" alt="Environment Setup Demo">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Participant Engagement</h2>
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Interactive Sessions</h4>
+                                    <p>Active participation through chat box discussions and real-time Q&A</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Clear Explanations</h4>
+                                    <p>Participants appreciated the clarity and practical approach of the session</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Feedback Collection</h4>
+                                    <p>Comprehensive feedback collected through ACM feedback forms</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Successful Outcomes</h4>
+                                    <p>Workshop successfully met objectives and prepared students for Code Arena</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Workshop Statistics</h3>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="stat-number">136</span>
+                                <span class="stat-label">Participants</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Hours</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">Online</span>
+                                <span class="stat-label">Mode</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Objective Met</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Workshop Conductors</h3>
+                        <div class="judges-list">
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=PM" alt="Paritosh Magare">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Paritosh Magare</h4>
+                                    <p>Code Arena Team Lead</p>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=AK" alt="Ayush Kshirsagar">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Ayush Kshirsagar</h4>
+                                    <p>Code Arena Team Member</p>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=PG" alt="Pratiksha Ghate">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Pratiksha Ghate</h4>
+                                    <p>Code Arena Team Member</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Participant Demographics</h3>
+                        <div class="sponsors-list" style="text-align: left;">
+                            <p style="margin-bottom: 10px;"><strong>1st Year Students:</strong> Primary target audience</p>
+                            <p style="margin-bottom: 10px;"><strong>2nd Year Students:</strong> Skill enhancement</p>
+                            <p style="margin-bottom: 10px;"><strong>3rd Year Students:</strong> Advanced concepts</p>
+                            <p style="margin-bottom: 15px;"><strong>Total:</strong> 136 participants</p>
+                            <p><em>Multi-year participation shows broad interest in C programming fundamentals</em></p>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Technical Requirements</h3>
+                        <ul class="bring-list">
+                            <li><i class="fas fa-laptop"></i> Computer with internet</li>
+                            <li><i class="fas fa-code"></i> VS Code IDE</li>
+                            <li><i class="fas fa-cog"></i> MinGW Compiler</li>
+                            <li><i class="fas fa-video"></i> Google Meet access</li>
+                            <li><i class="fas fa-headphones"></i> Headphones/speakers</li>
+                            <li><i class="fas fa-notepad"></i> Note-taking materials</li>
+                            <li><i class="fas fa-brain"></i> Enthusiasm to learn!</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Key Learning Outcomes</h3>
+                        <div class="sponsors-list" style="text-align: left;">
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> C programming fundamentals mastery</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Debugging and error resolution skills</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Development environment setup</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Problem-solving approach</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Code Arena competition readiness</p>
+                            <p><strong>✓</strong> Practical coding experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="brand-icon">
+                            <img src="images/svpcet-acm-logo.png" alt="ACM SVPCET Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                        </div>
+                        <div class="brand-text">
+                            <h3>ACM SVPCET</h3>
+                            <p>Student Chapter</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Empowering future tech leaders through innovation, collaboration, and excellence.
+                    </p>
+                    <button class="btn btn-primary">Join Us Today</button>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#domains">Domains</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Domains</h4>
+                    <ul class="footer-links">
+                        <li>Technical</li>
+                        <li>Competitive Programming</li>
+                        <li>Web Development</li>
+                        <li>Management</li>
+                        <li>Creative</li>
+                        <li>Publicity</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>SVPCET, Gavasi Manapur, Wardha Road, Nagpur - 441108</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>acm@svpcet.ac.in</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+91 712 123 4567</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SVPCET ACM Student Chapter. All Rights Reserved. | Designed with ❤️ by ACM Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

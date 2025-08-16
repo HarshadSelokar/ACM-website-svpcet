@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Team - SVPCET ACM Student Chapter</title>
+    <meta content="Meet our dedicated team members, mentors, and core team at SVPCET ACM Student Chapter"
+        name="description" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link href="style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="header.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .brand-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .brand-text p {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        } */
+        /* 
+        .nav-link:hover,
+        .nav-link.active {
+            color: #3b82f6;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        } */
+
+        /* Page Header */
+        /* .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        } */
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Year Filter */
+        .year-filter {
+            background: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 2rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            color: #64748b;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        /* Team Sections */
+        .team-section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .faculty-grid {
+            grid-template-columns: 1fr;
+            /* max-width: 600px;
+            margin: 0 auto; */
+        }
+
+        /* Team Cards */
+        .team-card {
+
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 1;
+            transform: scale(1);
+            max-width: 340px;
+            justify-self: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-card.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        .member-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(175, 175, 175, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-card:hover .member-overlay {
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: #828282;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #1e293b;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 2rem;
+        }
+
+        .member-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .member-year {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-department {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .member-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .expertise-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .faculty-card .member-image {
+            height: 400px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-buttons {
+                display: flex;
+                position: relative;
+                bottom: -30px;
+                justify-content: center;
+                gap: 3rem;
+                flex-wrap: wrap;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+            /* Year Filter Section */
+            .year-filter {
+                background: white;
+                padding: 2rem 0;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 2rem;
+                border-radius: 8px;
+            }
+
+            .filter-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .filter-btn {
+                padding: 0.75rem 2rem;
+                border: 2px solid #e2e8f0;
+                background: white;
+                color: #64748b;
+                border-radius: 2rem;
+                font-weight: 600;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .filter-btn:hover,
+            .filter-btn.active {
+                background: #3b82f6;
+                color: white;
+                border-color: #3b82f6;
+                transform: translateY(-2px);
+            }
+
+            /* Mobile Adjustments */
+            @media (max-width: 768px) {
+                .filter-buttons {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .filter-btn {
+                    width: 200px;
+                    text-align: center;
+                }
+            }
+
+
+            .filter-btn {
+                padding: 0.75rem 2rem;
+                border: 2px solid #e2e8f0;
+                background: white;
+                color: #64748b;
+                border-radius: 2rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .filter-btn:hover,
+            .filter-btn.active {
+                background: #3b82f6;
+                color: white;
+                border-color: #3b82f6;
+                transform: translateY(-2px);
+            }
+
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 200px;
+            }
+        }
+
+        /* Animation */
+        .team-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .faculty-section {
+            padding: 4rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="College_Mission_Info">
+        <div onclick="window.location.href = 'https://stvincentngp.edu.in/'" class="College_Logo">
+            <img src="./images/svpcet-logo.png" alt="College_Logo" />
+        </div>
+        <div class="College_NamePlate">
+
+            <p>
+                <b class="svp">ST. VINCENT PALLOTTI</b> <br>
+                <b class="cet">COLLEGE ENGINEERING AND TECHNOLOGY, NAGPUR</b>
+                <br /><span>An Autonomous Institute</span>
+            </p>
+            <p class="h1"> Department of Computer Engineering </p>
+            <p class="h1">ACM CE Student Chapter</p>
+
+        </div>
+        <div onclick="window.location.href = 'https://www.acm.org/'" class="acm_Logo">
+            <img src="images/acm-o-logo.png" alt="acm_logo" />
+        </div>
+    </header>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- <div class="nav-brand">
+                <div class="brand-icon">
+                    <img alt="ACM SVPCET Logo" src="images/svpcet-acm-logo.png"
+                        style="width: 40px; height: 40px; object-fit: contain;" />
+                </div>
+                <div class="brand-text">
+                    <h1>ACM SVPCET</h1>
+                    <p>Student Chapter</p>
+                </div>
+            </div> -->
+            <div class="nav-menu" id="nav-menu">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="index.html#about">About</a>
+                <!-- <a class="nav-link" href="index.html#domains">Domains</a> -->
+                <a class="nav-link" href="events.html">Events</a>
+                <a class="nav-link active" href="team.html">Team</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+                <button onclick="window.location.href='c-form.html'" class="btn btn-primary">Join Us</button>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Team</span>
+                </div>
+                <h1>Our Team</h1>
+                <p>Meet the passionate individuals who make ACM SVPCET Student Chapter a thriving community</p>
+            </div>
+        </div>
+    </section>
+    <!-- Faculty Mentor Section -->
+
+    <section class="faculty-section">
+        <div class="team-grid faculty-grid" style="display: grid; gap: 20px; justify-content: center;">
+            <!-- Dr. Manoj V. Bramhe -->
+            <div class="div f-t">
+                <h2 class="section-title">Faculty Mentor</h2>
+            </div>
+
+
+            <div class="f-card">
+                <div class="team-card faculty-card " style="max-width: 25rem;">
+
+                    <div class="member-image pw">
+                        <img alt="Dr. Manoj V. Bramhe" src="images\team\core-team\manoj_1739333214.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fas fa-envelope"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Dr. Manoj V. Bramhe</h3>
+                        <p class="member-role">Professor, Head of Department</p>
+                        <p class="member-department">Computer Engineering Department</p>
+                        <p class="member-description">
+                            Dr. Manoj V. Bramhe leads the department with expertise, fostering academic excellence and
+                            guiding future engineers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Dr. Pallavi Wankhede -->
+                <div class="team-card faculty-card" style="max-width: 25rem;">
+                    <div class="member-image pw">
+                        <img alt="Dr. Pallavi Wankhede" src="images\team\pallavi_173933.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fas fa-envelope"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Dr. Pallavi Wankhede</h3>
+                        <p class="member-role">Faculty Mentor</p>
+                        <p class="member-department">Computer Engineering Department</p>
+                        <p class="member-description">
+                            Dr. Pallavi Wankhede, our esteemed faculty mentor, offers vital guidance and support to the
+                            ACM
+                            Student Chapter, driving its growth through her expertise and dedication.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- <span class="expertise-tag">Machine Learning</span>
+                            <span class="expertise-tag">Data Science</span>
+                            <span class="expertise-tag">Research</span> -->
+
+
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <!-- <div class="filter-buttons">
+                <button class="filter-btn active" data-year="all">All Years</button>
+                <button class="filter-btn" data-year="2023">2023</button>
+                <button class="filter-btn" data-year="2024">2024</button>
+                <button class="filter-btn" data-year="2025">2025</button>
+            </div> -->
+    </section>
+
+
+
+
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">2025-26 ACM Officers</h2>
+                <p class="section-description">The driving force behind our chapter's activities</p>
+            </div>
+            <div class="team-grid">
+                <!-- Chair -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Rajas Tarapure" src="./images/team/core-team/rajas.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Rajas Tarapure</h3>
+                        <p class="member-role">ACM Chair</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Leading the chapter with vision and dedication. Coordinates all activities and ensures
+                            smooth functioning of the organization.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Leadership</span>
+                            <span class="expertise-tag">Project Management</span>
+                            <span class="expertise-tag">Full Stack Development</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vice Chair -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Nevin Oommen" src="./images/team/core-team/nevin oommen.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Nevin Oommen</h3>
+                        <p class="member-role">2025-26 ACM Vice Chair</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Supports the chair in strategic planning and leads initiatives for technical events and
+                            workshops.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Management</span>
+                            <span class="expertise-tag">Technical Writing</span>
+                            <span class="expertise-tag">Cloud Computing</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Treasurer -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Bhumika Patrikar" src="./images/team/core-team/Bhumika Patrikar new.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Bhumika Patrikar</h3>
+                        <p class="member-role">2025-26 ACM Treasurer (ACM India Dashboard I/C)</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Manages financial records and oversees the ACM India dashboard for efficient chapter
+                            operations.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Financial Management</span>
+                            <span class="expertise-tag">Data Management</span>
+                            <span class="expertise-tag">Accounting</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Secretary -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Prathmesh Nishane" src="./images/team/core-team/prathmesh.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Prathmesh Nishane</h3>
+                        <p class="member-role">Secretary</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Maintains records, coordinates meetings, and ensures effective communication within the
+                            team.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Documentation</span>
+                            <span class="expertise-tag">Communication</span>
+                            <span class="expertise-tag">Organizational Skills</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Technical Head (Sec A) -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Laksh Ikhar" src=".\images\team\core-team\Laksh Ikhar.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Laksh Ikhar</h3>
+                        <p class="member-role">2025-26 ACM Technical Head (Sec A)</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Leads technical initiatives for Section A, organizing workshops and coding sessions.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Technical Leadership</span>
+                            <span class="expertise-tag">Software Development</span>
+                            <span class="expertise-tag">Problem Solving</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Technical Head (Sec B) -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Atharva Bhede" src="./images/team/core-team/Atharva_Bhede.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Atharva Bhede</h3>
+                        <p class="member-role">2025-26 ACM Technical Head (Sec B)</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Oversees technical projects for Section B, focusing on innovative tech solutions.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Technical Leadership</span>
+                            <span class="expertise-tag">Innovation</span>
+                            <span class="expertise-tag">Coding</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Social Media Publicity Head (Sec A) -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Meet Shivhare" src="./images/team/core-team/Meet_Shivhare new.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Meet Shivhare</h3>
+                        <p class="member-role">2025-26 Social Media Publicity Head (Sec A)</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Manages social media campaigns for Section A, creating engaging content to promote events.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Social Media Marketing</span>
+                            <span class="expertise-tag">Content Creation</span>
+                            <span class="expertise-tag">Digital Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Social Media Publicity Head (Sec B) -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Yash Siddhabhatti" src="./images/team/core-team/yash.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Yash Siddhabhatti</h3>
+                        <p class="member-role">Social Media Publicity Head (Sec B)</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Drives social media strategies for Section B, enhancing chapter visibility.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Social Media Strategy</span>
+                            <span class="expertise-tag">Branding</span>
+                            <span class="expertise-tag">Graphic Design</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event Technologist -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Sumit Prasad" src="./images/team/core-team/sumit prasad.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sumit Prasad</h3>
+                        <p class="member-role">2025-26 Event Technologist (College/National Level)</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Coordinates technical aspects of college and national-level events, ensuring seamless
+                            execution.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Technology</span>
+                            <span class="expertise-tag">Logistics</span>
+                            <span class="expertise-tag">Technical Support</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Poster/Certificate Design I/C -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Sandev Kabde" src="./images/team/core-team/Sanved_Kabade.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sanved Kabade</h3>
+                        <p class="member-role">2025-26 ACM Poster/Certificate Design I/C</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Designs creative posters and certificates for ACM events, enhancing visual appeal.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Graphic Design</span>
+                            <span class="expertise-tag">Creative Design</span>
+                            <span class="expertise-tag">Visual Arts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">2025-26 ACM Website Core Team</h2>
+                <p class="section-description">Building and maintaining our digital presence</p>
+            </div>
+            <div class="team-grid">
+                <!-- Web Master Coordinator -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Saurabh Wankhede" src="./images/team/core-team/Sourabh_bhau_wankhede.png" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Saurabh Wankhede</h3>
+                        <p class="member-role">ACM Web Master Coordinator</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Leads the web development team at ACM SVPCET, overseeing the design, development, and
+                            deployment of a user-centric and scalable digital platform.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Web Development</span>
+                            <span class="expertise-tag">UI/UX Design</span>
+                            <span class="expertise-tag">JavaScript</span>
+                            <span class="expertise-tag">Firebase</span>
+                            <span class="expertise-tag">Git Workflows</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Co-coordinator -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Gour Biswas" src="images\team\core-team\Gouri Biswas  new.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Gour Biswas</h3>
+                        <p class="member-role">Co-coordinator</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Supports the development process by managing frontend workflows and ensuring seamless
+                            coordination among team members for efficient project execution.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Frontend Development</span>
+                            <span class="expertise-tag">Git Workflows</span>
+                            <span class="expertise-tag">React Development</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Members -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Ayush Jibkate" src="./images/team/core-team/Aayush Jibhkate-min222.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Aayush Jibhkate</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Contributes to the development and maintenance of the ACM SVPCET website with a focus on
+                            feature integration, performance optimization, and responsive design.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Web Development</span>
+                            <span class="expertise-tag">Git Workflows</span>
+                            <span class="expertise-tag">Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="team-card">
+<div class="member-image">
+<img alt="Khushi Choudhari" src="./images/team/core-team/Khushi Choudhari .jpg"/>
+<div class="member-overlay">
+<div class="social-links">
+<a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+<a class="social-link" href="#"><i class="fab fa-github"></i></a>
+<a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</div>
+<div class="member-info">
+<h3>Khushi Choudhari</h3>
+<p class="member-role">Member</p>
+<p class="member-year">3rd Year</p>
+<p class="member-description">
+                            Supports website content updates and user interface enhancements.
+                        </p>
+<div class="member-expertise">
+<span class="expertise-tag">UI Design</span>
+<span class="expertise-tag">Content Management</span>
+<span class="expertise-tag">Web Development</span>
+</div>
+</div>
+</div> -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Vivek Kumar" src="./images/team/core-team/Vivek Kumar new.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Vivek Kumar</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Assists in backend development and website functionality improvements.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Backend Development</span>
+                            <span class="expertise-tag">Database Management</span>
+                            <span class="expertise-tag">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Chaitanya Kolate" src="./images/team/core-team/Chaitanya Kolate.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Chaitanya Kolate</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Contributes to website testing and performance optimization.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Web Testing</span>
+                            <span class="expertise-tag">Performance Optimization</span>
+                            <span class="expertise-tag">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Gargi Gundawar" src="./images/team/core-team/Gargi Gundawar.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Gargi Gundawar</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Supports website design and content creation efforts.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Web Design</span>
+                            <span class="expertise-tag">Content Creation</span>
+                            <span class="expertise-tag">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">2025-26 Event Organizing Core Team </h2>
+                <p class="section-description">Coordinating department-level events with precision</p>
+            </div>
+            <div class="team-grid">
+                <!-- Department Level Event Tracking Head -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Vaibhav Thakare" src="./images/team/core-team/Vaibhav Thakare.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Vaibhav Thakare</h3>
+                        <p class="member-role">Department Level Event Tracking Head</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Oversees the planning and tracking of department-level events for Section A.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Planning</span>
+                            <span class="expertise-tag">Coordination</span>
+                            <span class="expertise-tag">Logistics</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Members -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Amiya Bovas" src="./images/team/core-team/Amiya P Bovas.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Amiya Bovas</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Supports event organization and logistics for Section A events.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Support</span>
+                            <span class="expertise-tag">Team Coordination</span>
+                            <span class="expertise-tag">Communication</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Aayushi Asole" src="./images/team/core-team/Aayushi Asole new.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Aayushi Asole</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Assists in event coordination and participant management for Section A.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Coordination</span>
+                            <span class="expertise-tag">Participant Management</span>
+                            <span class="expertise-tag">Organization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Sharwari Raut" src="./images/team/core-team/Sharwari Raut (1).jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sharwari Raut</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Contributes to event planning and execution for Section A events.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Planning</span>
+                            <span class="expertise-tag">Teamwork</span>
+                            <span class="expertise-tag">Execution</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Prince Singh" src="./images/team/core-team/PrinceSingh.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Prince Singh</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Supports event logistics and coordination for Section A.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Logistics</span>
+                            <span class="expertise-tag">Event Support</span>
+                            <span class="expertise-tag">Team Coordination</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Shubham Dhabu" src="./images/team/core-team/Shubham Dhabu new.png" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Shubham Dhabu</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Assists in event setup and management for Section A events.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Setup</span>
+                            <span class="expertise-tag">Management</span>
+                            <span class="expertise-tag">Coordination</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">2025-26 Event Organizing Core Team</h2>
+                <p class="section-description">Driving department-level events for Section B</p>
+            </div>
+            <div class="team-grid">
+                <!-- Department Level Event Tracking Head -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Kaiwalya Pund" src="./images/team/core-team/pund.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Kaiwalya Pund</h3>
+                        <p class="member-role">Department Level Event Tracking Head</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Leads the planning and tracking of department-level events for Section B.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Planning</span>
+                            <span class="expertise-tag">Coordination</span>
+                            <span class="expertise-tag">Logistics</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Members -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Ayush Kshirsagar" src="./images/team/core-team/ayush kshirsagar.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Ayush Kshirsagar</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Supports event organization and logistics for Section B events.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Support</span>
+                            <span class="expertise-tag">Team Coordination</span>
+                            <span class="expertise-tag">Communication</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Paritosh Magare" src="./images/team/core-team/Paritosh Magare.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Paritosh Magare</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Assists in event coordination and participant management for Section B.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Coordination</span>
+                            <span class="expertise-tag">Participant Management</span>
+                            <span class="expertise-tag">Organization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Parth Dange" src=".\images\team\core-team\Parth Dange.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Parth Dange</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Contributes to event planning and execution for Section B events.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Planning</span>
+                            <span class="expertise-tag">Teamwork</span>
+                            <span class="expertise-tag">Execution</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Parth Upadhye" src="./images/team/core-team/Parth Upadhye.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Parth Upadhye</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Supports event logistics and coordination for Section B.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Logistics</span>
+                            <span class="expertise-tag">Event Support</span>
+                            <span class="expertise-tag">Team Coordination</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Nakul Armarkar" src="./images/team/core-team/Nakul.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Nakul Armarkar</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Assists in event setup and management for Section B events.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Setup</span>
+                            <span class="expertise-tag">Management</span>
+                            <span class="expertise-tag">Coordination</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Manasvi Giradkar" src="./images/team/core-team/Manasvi Giradkar (1).jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Manasvi Giradkar</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Contributes to event planning and participant engagement for Section B.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Planning</span>
+                            <span class="expertise-tag">Engagement</span>
+                            <span class="expertise-tag">Coordination</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Rudraksha Asati" src="./images/team/core-team/Rudraksha_Asati.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Rudraksha Asati</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Supports event execution and logistics for Section B events.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Execution</span>
+                            <span class="expertise-tag">Logistics</span>
+                            <span class="expertise-tag">Teamwork</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">2025-26 ACM Event Team</h2>
+                <p class="section-description">Managing event documentation and feedback</p>
+            </div>
+            <div class="team-grid">
+                <!-- Members -->
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Pariniti Agarkar" src="./images/team/core-team/pari.png" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Pariniti Agarkar</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Manages event calendars and prepares detailed reports for ACM activities.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Calendar Management</span>
+                            <span class="expertise-tag">Report Writing</span>
+                            <span class="expertise-tag">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Radhika Salodkar" src="./images/team/core-team/Radhika_Salodkar.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Radhika Salodkar</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Collects and analyzes feedback to improve future ACM events.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Feedback Analysis</span>
+                            <span class="expertise-tag">Report Writing</span>
+                            <span class="expertise-tag">Data Management</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Gargi Udapure" src="./images/team/core-team/Gargi Udapure.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Gargi Udapure</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Supports event documentation and feedback collection processes.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Documentation</span>
+                            <span class="expertise-tag">Feedback Collection</span>
+                            <span class="expertise-tag">Organization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Elasha Deoghare" src="./images/team/core-team/el.png" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Elasha Deoghare</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Assists in maintaining event schedules and preparing reports.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Scheduling</span>
+                            <span class="expertise-tag">Report Preparation</span>
+                            <span class="expertise-tag">Data Management</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Mansi Thakre" src="./images/team/core-team/Mansi Thakre.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Mansi Thakre</h3>
+                        <p class="member-role">Member</p>
+                        <p class="member-year">3rd Year</p>
+                        <p class="member-description">
+                            Contributes to feedback analysis and event documentation efforts.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Feedback Analysis</span>
+                            <span class="expertise-tag">Documentation</span>
+                            <span class="expertise-tag">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="team-section" data-year="2024">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">2024-25 Team</h2>
+                <p class="section-description">The leadership team driving our chapter forward in 2024</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Vishal Injewar"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vishal.jpg-yRZ78s3CLdAniUkVJr6br2fthNmxQy.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Vishal Injewar</h3>
+                        <p class="member-role">Chair</p>
+                        <p class="member-year">3rd Year (2024)</p>
+                        <p class="member-description">
+                            Leading the chapter with vision and dedication, coordinating all activities and ensuring
+                            smooth functioning.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Leadership</span>
+                            <span class="expertise-tag">Strategic Planning</span>
+                            <span class="expertise-tag">Team Management</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Barnabas Johnson"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/barnabas.jpg-cchosd4dBgvrDQ5riEAd3PdlRmizhm.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Barnabas Johnson</h3>
+                        <p class="member-role">Vice Chair</p>
+                        <p class="member-year">3rd Year (2024)</p>
+                        <p class="member-description">
+                            Supports the chair in strategic planning and leads initiatives for technical events and
+                            workshops.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Management</span>
+                            <span class="expertise-tag">Technical Leadership</span>
+                            <span class="expertise-tag">Coordination</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Om Vispute"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/om.jpg-WXYbgOuBhzhOyqCEYIJ1pB4iiyOBRi.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Om Vispute</h3>
+                        <p class="member-role">Membership Chair Coordinator</p>
+                        <p class="member-year">3rd Year (2024)</p>
+                        <p class="member-description">
+                            Manages membership activities and coordinates with new members to ensure smooth onboarding.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Membership Management</span>
+                            <span class="expertise-tag">Community Building</span>
+                            <span class="expertise-tag">Outreach</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Harshal Solanki"
+                            src="..\images\team\harshal_solanki.jpg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Harshal Solanki</h3>
+                        <p class="member-role">Secretary</p>
+                        <p class="member-year">3rd Year (2024)</p>
+                        <p class="member-description">
+                            Maintains records, coordinates meetings, and ensures effective communication within the
+                            team.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Documentation</span>
+                            <span class="expertise-tag">Communication</span>
+                            <span class="expertise-tag">Administrative Skills</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Vedant Kapse"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vedant.jpg-iZwpYRVOl8nPVSc84Nuw2Y9miHTUxQ.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Vedant Kapse</h3>
+                        <p class="member-role">Web Master</p>
+                        <p class="member-year">3rd Year (2024)</p>
+                        <p class="member-description">
+                            Leads web development initiatives and maintains the chapter's digital presence.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Web Development</span>
+                            <span class="expertise-tag">Frontend Design</span>
+                            <span class="expertise-tag">Digital Strategy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Daisy Francis"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/daisy.jpg-1aj7wdXX7OyVoKTJbaaEquiuHAo96A.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Daisy Francis</h3>
+                        <p class="member-role">Web Master</p>
+                        <p class="member-year">3rd Year (2024)</p>
+                        <p class="member-description">
+                            Collaborates on web development projects and ensures optimal user experience across
+                            platforms.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Web Development</span>
+                            <span class="expertise-tag">UI/UX Design</span>
+                            <span class="expertise-tag">User Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="team-section" data-year="2023">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">2023-24 Student Mentors</h2>
+                <p class="section-description">Fourth year students who guided the chapter in 2023</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Janhavi Upadhye"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/janhavi.jpg-1jzYQu8BEXN1OrqIgx32ntVe6oxVBH.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Janhavi Upadhye</h3>
+                        <p class="member-role">Student Mentor</p>
+                        <p class="member-year">4th Year (2023)</p>
+                        <p class="member-description">
+                            Provided mentorship and guidance to junior students, helping establish strong foundations
+                            for the ACM chapter.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Mentorship</span>
+                            <span class="expertise-tag">Leadership</span>
+                            <span class="expertise-tag">Software Development</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Mansi Keshattiwar"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mansi.jpg-MEyNoFYOBwQQnJ4utCFLZPEV14WDXl.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Mansi Keshattiwar</h3>
+                        <p class="member-role">Student Mentor</p>
+                        <p class="member-year">4th Year (2023)</p>
+                        <p class="member-description">
+                            Contributed to the academic and professional development of students through various
+                            mentoring programs.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Academic Guidance</span>
+                            <span class="expertise-tag">Project Management</span>
+                            <span class="expertise-tag">Technical Writing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="member-image">
+                        <img alt="Chirag Agrawal"
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/chirag.jpg-fCMCKoyJHA0qZ0Ub9QVoxOLALnWnqa.jpeg" />
+                        <div class="member-overlay">
+                            <div class="social-links">
+                                <a class="social-link" href="#"><i class="fab fa-linkedin"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-github"></i></a>
+                                <a class="social-link" href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Chirag Agrawal</h3>
+                        <p class="member-role">Student Mentor</p>
+                        <p class="member-year">4th Year (2023)</p>
+                        <p class="member-description">
+                            Played a key role in organizing technical events and fostering a culture of innovation
+                            within the chapter.
+                        </p>
+                        <div class="member-expertise">
+                            <span class="expertise-tag">Event Organization</span>
+                            <span class="expertise-tag">Innovation</span>
+                            <span class="expertise-tag">Technical Skills</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="year-filter">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-year="all">All Years</button>
+                    <button class="filter-btn" data-year="2023">2023</button>
+                    <button class="filter-btn" data-year="2024">2024</button>
+                    <button class="filter-btn" data-year="2025">2025</button>
+                </div>
+                <h2 class="section-title" style="font-size: 2rem; margin-bottom: 0.5rem;">Student Teams by Year</h2>
+                <p class="section-description">Filter to view our student leadership across different academic years</p>
+            </div>
+        </div>
+    </section>
+    <!-- 2024 Core Team Section -->
+
+    <!-- ACM Officers Section -->
+
+    <!-- ACM Website Core Team Section -->
+
+    <!-- Event Organizing Core Team Section A -->
+
+    <!-- Event Organizing Core Team Section B -->
+
+    <!-- ACM Event (Calendar/Report/Feedback) Team Section -->
+
+    <!-- Join Team CTA -->
+    <section class="join-team-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Want to Join Our Team?</h2>
+                <p>We're always looking for passionate and dedicated students to join our growing community. Be part of
+                    something amazing!</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary btn-large">Apply Now</button>
+                    <a class="btn btn-outline btn-large" href="contact.html">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="brand-icon">
+                            <img alt="ACM SVPCET Logo" src="images/svpcet-acm-logo.png"
+                                style="width: 40px; height: 40px; object-fit: contain;" />
+                        </div>
+                        <div class="brand-text">
+                            <h3>ACM SVPCET</h3>
+                            <p>Student Chapter</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Empowering future tech leaders through innovation, collaboration, and excellence.
+                    </p>
+                    <button class="btn btn-primary">Join Us Today</button>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#domains">Domains</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Domains</h4>
+                    <ul class="footer-links">
+                        <li>Technical</li>
+                        <li>Competitive Programming</li>
+                        <li>Web Development</li>
+                        <li>Management</li>
+                        <li>Creative</li>
+                        <li>Publicity</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>SVPCET, Gavasi Manapur, Wardha Road, Nagpur - 441108</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>acm@svpcet.ac.in</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+91 712 123 4567</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 SVPCET ACM Student Chapter. All Rights Reserved. | Designed with ❤️ by ACM Team</p>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="team-dynamic.js"></script>
+</body>
+
+</html>

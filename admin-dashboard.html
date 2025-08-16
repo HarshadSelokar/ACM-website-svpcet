@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACM Admin Dashboard - SVPCET</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+    <!-- Firebase Login Form -->
+    <div id="login-container" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+        <form id="login-form" style="background: #fff; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); min-width: 320px;">
+            <h2 style="text-align:center; margin-bottom: 1.5rem;">Admin Login</h2>
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-input" required style="width:100%; padding:0.5rem;">
+            </div>
+            <div class="form-group" style="margin-bottom: 1rem;">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-input" required style="width:100%; padding:0.5rem;">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Login</button>
+            <div id="login-error" style="color:#ef4444; margin-top:1rem; text-align:center; display:none;"></div>
+        </form>
+    </div>
+    <div class="dashboard-container" style="display:none;">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>ACM Dashboard</h2>
+                <p>SVPCET Student Chapter</p>
+            </div>
+            <nav class="nav-menu">
+                <div class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" data-section="members">
+                    <i class="fas fa-users"></i>
+                    <span>Members</span>
+                </div>
+                <div class="nav-item" data-section="events">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Events</span>
+                </div>
+                <div class="nav-item" data-section="contacts">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact Forms</span>
+                </div>
+                <div class="nav-item" data-section="community-submissions">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Community Joins</span>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Logout Button -->
+            <div style="display: flex; justify-content: flex-end; padding: 1rem 2rem 0 0;">
+                <button id="logout-btn" class="btn btn-secondary" style="min-width: 100px;">Logout</button>
+            </div>
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="section-content active">
+                <div class="page-header">
+                    <h1 class="page-title">Dashboard Overview</h1>
+                    <p class="page-description">Welcome to ACM SVPCET Admin Dashboard</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-number" id="totalMembers">0</div>
+                                <div class="stat-label">Total Members</div>
+                            </div>
+                            <div class="stat-icon" style="background: #3b82f6;">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-number" id="totalEvents">0</div>
+                                <div class="stat-label">Total Events</div>
+                            </div>
+                            <div class="stat-icon" style="background: #10b981;">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-number" id="upcomingEvents">0</div>
+                                <div class="stat-label">Upcoming Events</div>
+                            </div>
+                            <div class="stat-icon" style="background: #f59e0b;">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-number" id="newContacts">0</div>
+                                <div class="stat-label">New Messages</div>
+                            </div>
+                            <div class="stat-icon" style="background: #ef4444;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div>
+                                <div class="stat-number" id="newCommunitySubmissions">0</div>
+                                <div class="stat-label">New Community Joins</div>
+                            </div>
+                            <div class="stat-icon" style="background: #8b5cf6;">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Quick Actions</h3>
+                    </div>
+                    <div style="padding: 1.5rem 2rem;">
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="showAddMemberForm()">
+                                <i class="fas fa-plus"></i>
+                                Add Member
+                            </button>
+                            <button class="btn btn-primary" onclick="showAddEventForm()">
+                                <i class="fas fa-plus"></i>
+                                Add Event
+                            </button>
+                            <button class="btn btn-secondary" onclick="loadContacts()">
+                                <i class="fas fa-envelope"></i>
+                                View Messages
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Members Section -->
+            <div id="members" class="section-content">
+                <div class="page-header">
+                    <h1 class="page-title">Manage Members</h1>
+                    <p class="page-description">Add, edit, and manage team members</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3 class="section-title">All Members</h3>
+                        <button class="btn btn-primary" onclick="showAddMemberForm()">
+                            <i class="fas fa-plus"></i>
+                            Add Member
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="membersTable">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                    <th>Year</th>
+                                    <th>Session</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="membersTableBody">
+                                <!-- Members will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Section -->
+            <div id="events" class="section-content">
+                <div class="page-header">
+                    <h1 class="page-title">Manage Events</h1>
+                    <p class="page-description">Add, edit, and manage events</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3 class="section-title">All Events</h3>
+                        <button class="btn btn-primary" onclick="showAddEventForm()">
+                            <i class="fas fa-plus"></i>
+                            Add Event
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="eventsTable">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="eventsTableBody">
+                                <!-- Events will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contacts Section -->
+            <div id="contacts" class="section-content">
+                <div class="page-header">
+                    <h1 class="page-title">Contact Form Submissions</h1>
+                    <p class="page-description">View and manage contact form submissions</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3 class="section-title">All Submissions</h3>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="contactsTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Subject</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="contactsTableBody">
+                                <!-- Contacts will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community Submissions Section -->
+            <div id="community-submissions" class="section-content">
+                <div class="page-header">
+                    <h1 class="page-title">Community Join Submissions</h1>
+                    <p class="page-description">View and manage community join form submissions</p>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h3 class="section-title">All Submissions</h3>
+                        <div class="section-actions">
+                            <div class="export-controls">
+                                <input type="date" id="fromDate" class="form-input" placeholder="From Date">
+                                <input type="date" id="toDate" class="form-input" placeholder="To Date">
+                                <button class="btn btn-primary" onclick="exportCommunitySubmissions()">
+                                    <i class="fas fa-download"></i> Export to Excel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="communitySubmissionsTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Roll No</th>
+                                    <th>Year</th>
+                                    <th>Branch</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="communitySubmissionsTableBody">
+                                <!-- Community submissions will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Member Modal -->
+    <div class="form-overlay" id="addMemberModal">
+        <div class="form-modal">
+            <div class="form-header">
+                <h3 class="form-title">Add New Member</h3>
+                <button class="close-btn" onclick="closeModal('addMemberModal')">&times;</button>
+            </div>
+            <form id="addMemberForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Name *</label>
+                        <input type="text" class="form-input" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Role *</label>
+                        <input type="text" class="form-input" name="role" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Year *</label>
+                        <select class="form-input" name="year" required>
+                            <option value="">Select Year</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
+                        </select>
+                    </div>
+                                         <div class="form-group">
+                         <label class="form-label">Session Year *</label>
+                         <div class="session-year-container">
+                             <select class="form-input" name="session_year" id="memberSessionYear" required>
+                                 <option value="">Select Session</option>
+                                 <option value="2025-26">2025-26</option>
+                                 <option value="2024-25">2024-25</option>
+                                 <option value="2023-24">2023-24</option>
+                             </select>
+                             <button type="button" class="btn btn-secondary btn-sm" onclick="showCustomSessionInput('member')" style="margin-left: 10px;">
+                                 <i class="fas fa-plus"></i> Add New
+                             </button>
+                         </div>
+                         <div id="customSessionInputMember" class="custom-session-input" style="display: none; margin-top: 10px;">
+                             <input type="text" class="form-input" id="newSessionYearMember" placeholder="Enter new session year (e.g., 2026-27)" style="margin-bottom: 10px;">
+                             <button type="button" class="btn btn-primary btn-sm" onclick="addNewSessionYear('member')">Add Session</button>
+                             <button type="button" class="btn btn-secondary btn-sm" onclick="hideCustomSessionInput('member')" style="margin-left: 5px;">Cancel</button>
+                         </div>
+                     </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-input form-textarea" name="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Expertise (comma separated)</label>
+                    <input type="text" class="form-input" name="expertise" placeholder="e.g., Web Development, AI, Leadership">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">LinkedIn</label>
+                        <input type="url" class="form-input" name="linkedin">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">GitHub</label>
+                        <input type="url" class="form-input" name="github">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Twitter</label>
+                        <input type="url" class="form-input" name="twitter">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Instagram</label>
+                        <input type="url" class="form-input" name="instagram">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Profile Image</label>
+                    <input type="file" class="form-input" name="image" accept="image/*">
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addMemberModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Member</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Event Modal -->
+    <div class="form-overlay" id="addEventModal">
+        <div class="form-modal">
+            <div class="form-header">
+                <h3 class="form-title">Add New Event</h3>
+                <button class="close-btn" onclick="closeModal('addEventModal')">&times;</button>
+            </div>
+            <form id="addEventForm">
+                <div class="form-group">
+                    <label class="form-label">Event Title *</label>
+                    <input type="text" class="form-input" name="title" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Category *</label>
+                        <select class="form-input" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="competition">Competition</option>
+                            <option value="seminar">Seminar</option>
+                            <option value="hackathon">Hackathon</option>
+                            <option value="webinar">Webinar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Status *</label>
+                        <select class="form-input" name="status" required>
+                            <option value="">Select Status</option>
+                            <option value="upcoming">Upcoming</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Event Date *</label>
+                        <input type="date" class="form-input" name="event_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Event Time</label>
+                        <input type="text" class="form-input" name="event_time" placeholder="e.g., 2:00 PM - 4:00 PM">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Location</label>
+                        <input type="text" class="form-input" name="location" placeholder="e.g., BF-05">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Duration</label>
+                        <input type="text" class="form-input" name="duration" placeholder="e.g., 2 Hours">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-input form-textarea" name="description" rows="4"></textarea>
+                </div>
+                <div class="form-row">
+                                         <div class="form-group">
+                         <label class="form-label">Year *</label>
+                         <div class="session-year-container">
+                             <select class="form-input" name="year" id="eventYear" required>
+                                 <option value="">Select Year</option>
+                                 <option value="2025">2025</option>
+                                 <option value="2024">2024</option>
+                                 <option value="2023">2023</option>
+                             </select>
+                             <button type="button" class="btn btn-secondary btn-sm" onclick="showCustomSessionInput('event')" style="margin-left: 10px;">
+                                 <i class="fas fa-plus"></i> Add New
+                             </button>
+                         </div>
+                         <div id="customSessionInputEvent" class="custom-session-input" style="display: none; margin-top: 10px;">
+                             <input type="text" class="form-input" id="newSessionYearEvent" placeholder="Enter new year (e.g., 2026)" style="margin-bottom: 10px;">
+                             <button type="button" class="btn btn-primary btn-sm" onclick="addNewSessionYear('event')">Add Year</button>
+                             <button type="button" class="btn btn-secondary btn-sm" onclick="hideCustomSessionInput('event')" style="margin-left: 5px;">Cancel</button>
+                         </div>
+                     </div>
+                    <div class="form-group">
+                        <label class="form-label">Event Page URL</label>
+                        <input type="url" class="form-input" name="event_page_url" placeholder="e.g., ./event-pages/event21.html">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Event Image</label>
+                    <input type="file" class="form-input" name="image" accept="image/*">
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addEventModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Contact Modal -->
+    <div class="form-overlay" id="viewContactModal">
+        <div class="form-modal">
+            <div class="form-header">
+                <h3 class="form-title">Contact Details</h3>
+                <button class="close-btn" onclick="closeModal('viewContactModal')">&times;</button>
+            </div>
+            <div id="contactDetails">
+                <!-- Contact details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>

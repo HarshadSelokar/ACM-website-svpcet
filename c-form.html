@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Join ACM SVPCET Community</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="c-form.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <!-- <div class="logo-placeholder">ACM</div> -->
+      <img src="./images/acm-form.png" alt="" />
+    </div>
+
+    <h2>Join the ACM SVPCET Community</h2>
+    <p class="subtitle">
+      Be part of our chapter, share ideas, collaborate on projects, and stay
+      updated on events!
+    </p>
+
+    <form id="registrationForm">
+      <div class="form-group">
+        <input
+          type="text"
+          name="fullname"
+          placeholder="Full Name"
+          required
+          autocomplete="name"
+        />
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          required
+          autocomplete="email"
+        />
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="rollno" placeholder="College UID" required />
+        <i class="fa fa-id-badge" aria-hidden="true"></i>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="year" placeholder="Year" required />
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="branch" placeholder="Branch" required />
+        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <i class="fa fa-users" aria-hidden="true"></i> Join Now
+      </button>
+    </form>
+  </div>
+
+  <!-- Success Popup -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+      <div class="popup-header">
+        <i class="fa fa-check-circle success-icon"></i>
+        <h3>Details Submitted Successfully!</h3>
+      </div>
+      <div class="popup-content">
+        <p>Thank you for joining the ACM SVPCET Community!</p>
+        <p>We'll get in touch with you soon with more details about upcoming events and activities.</p>
+      </div>
+      <div class="popup-actions">
+        <a href="https://chat.whatsapp.com/your-whatsapp-link" target="_blank" class="join-btn whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+        </a>
+        <a href="https://t.me/your-telegram-link" target="_blank" class="join-btn telegram-btn">
+          <i class="fab fa-telegram"></i> Join Telegram Channel
+        </a>
+        <button id="closePopupBtn" class="close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Popup -->
+  <div class="popup-overlay" id="errorPopupOverlay">
+    <div class="popup error-popup">
+      <div class="popup-header">
+        <i class="fa fa-exclamation-circle error-icon"></i>
+        <h3>Submission Failed</h3>
+      </div>
+      <div class="popup-content">
+        <p id="errorMessage">Something went wrong. Please try again.</p>
+      </div>
+      <div class="popup-actions">
+        <button id="closeErrorPopupBtn" class="close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("registrationForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const popupOverlay = document.getElementById("popupOverlay");
+    const errorPopupOverlay = document.getElementById("errorPopupOverlay");
+    const closePopupBtn = document.getElementById("closePopupBtn");
+    const closeErrorPopupBtn = document.getElementById("closeErrorPopupBtn");
+    const errorMessage = document.getElementById("errorMessage");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      
+      // Show loading state
+      submitBtn.classList.add('loading');
+      submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Submitting...';
+      
+      try {
+        // Get form data
+        const formData = new FormData(form);
+        const data = {
+          fullname: formData.get('fullname'),
+          email: formData.get('email'),
+          rollno: formData.get('rollno'),
+          year: formData.get('year'),
+          branch: formData.get('branch')
+        };
+        
+        // Submit to backend
+        const response = await fetch('http://localhost:3000/api/community-submissions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        
+        if (response.ok) {
+          // Show success popup
+          popupOverlay.style.display = "flex";
+          // Reset form
+          form.reset();
+        } else {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Submission failed');
+        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        errorMessage.textContent = error.message || 'Something went wrong. Please try again.';
+        errorPopupOverlay.style.display = "flex";
+      } finally {
+        // Reset button state
+        submitBtn.classList.remove('loading');
+        submitBtn.innerHTML = '<i class="fa fa-users" aria-hidden="true"></i> Join Now';
+      }
+    });
+
+    closePopupBtn.addEventListener("click", function () {
+      popupOverlay.style.display = "none";
+    });
+
+    closeErrorPopupBtn.addEventListener("click", function () {
+      errorPopupOverlay.style.display = "none";
+    });
+
+    // Close popups when clicking outside
+    popupOverlay.addEventListener("click", function (e) {
+      if (e.target === popupOverlay) {
+        popupOverlay.style.display = "none";
+      }
+    });
+
+    errorPopupOverlay.addEventListener("click", function (e) {
+      if (e.target === errorPopupOverlay) {
+        errorPopupOverlay.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

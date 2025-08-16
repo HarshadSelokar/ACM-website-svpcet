@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Handjet:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&display=swap");
+/*font-family: "Josefin Sans", sans-serif;*/
+/*font-family: "Alfa Slab One", serif;*/
+
+.College_Mission_Info {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+.College_NamePlate {
+  font-family: "Alfa Slab One", serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 28px;
+  /* margin-bottom: 8px; */
+}
+
+.svp {
+
+  font-size: 45.5px;
+}
+
+.cet {
+
+  font-size: 20px;
+
+}
+
+.College_Mission_Info {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+  margin-top: 2rem;
+
+}
+
+
+.College_Logo img {
+  /* height: 110px;
+  width: 110px; */
+  height: 8rem;
+}
+
+.College_Logo {
+  cursor: pointer;
+}
+
+.acm_Logo {
+
+  cursor: pointer;
+}
+
+.acm_Logo img {
+  height: 130px;
+  width: 130px;
+
+}
+
+.College_NamePlate {
+  font-family: "Alfa Slab One", serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 28px;
+  /* margin-bottom: 8px; */
+}
+
+.College_NamePlate h1 {
+  color: #f7c336;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.College_NamePlate>.h1 {
+  color: #394666;
+  letter-spacing: 2px;
+  font-weight: 100;
+  font-size: 24px;
+  margin-top: 15px;
+  margin-bottom: 0;
+
+
+}
+
+.College_NamePlate p {
+  line-height: 19px;
+}
+
+.College_NamePlate b {
+  font-weight: 100;
+  /* font-size: 20px; */
+  color: #394666;
+}
+
+.College_NamePlate span {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+}
+
+.strap {
+  width: 100%;
+  overflow: hidden;
+  background: #091b64;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 10s linear infinite;
+}
+
+.scrolling-wrapper>* {
+  padding: 0 2rem;
+  /* spacing between repeated items */
+  white-space: nowrap;
+  color: white;
+  font-size: 24px;
+}
+
+/* Duplicate the content by CSS trick */
+.scrolling-wrapper>*:nth-child(n+1) {
+  /* same styling for all children */
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .College_Mission_Info {
+    display: inline-block;
+  }
+
+  .College_Mission_Info {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .College_Logo {
+    display: flex;
+    justify-content: center;
+    margin: 8px;
+  }
+
+  .svp {
+
+    font-size: 25px;
+  }
+
+  .cet {
+
+    font-size: 11px;
+
+  }
+
+
+  .College_NamePlate>.h1 {
+
+    font-size: 21px;
+  }
+
+  .acm_Logo {
+
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .acm_Logo img {
+    height: 7rem;
+    width: 7rem;
+    margin: 1rem;
+  }
+}
+
+
+@media (min-width: 480px) and (max-width: 768px) {
+
+  .College_Mission_Info {
+    display: inline;
+
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+
+  .College_Mission_Info {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .College_Logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .College_NamePlate {
+    align-items: center;
+  }
+
+
+  .College_NamePlate {
+    width: 100%;
+  }
+
+
+  .svp {
+
+    font-size: 25px;
+  }
+
+  .cet {
+
+    font-size: 11px;
+
+  }
+}

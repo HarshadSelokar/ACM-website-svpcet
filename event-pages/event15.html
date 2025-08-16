@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics of Programming Workshop - SVPCET ACM Student Chapter</title>
+    <meta name="description" content="3-hour comprehensive workshop introducing fundamental programming concepts with C language, algorithms, and interactive challenges.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-scrolled" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <img src="images/svpcet-acm-logo.png" alt="ACM SVPCET Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                </div>
+                <div class="brand-text">
+                    <h1>ACM SVPCET</h1>
+                    <p>Student Chapter</p>
+                </div>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#about" class="nav-link">About</a>
+                <a href="../index.html#domains" class="nav-link">Domains</a>
+                <a href="../events.html" class="nav-link">Events</a>
+                <a href="../team.html" class="nav-link">Team</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <button class="btn btn-primary">Join Us</button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Hero -->
+    <section class="event-hero workshop-hero">
+        <div class="container">
+            <div class="event-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="events.html">Events</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Basics of Programming Workshop</span>
+                </div>
+                <div class="event-status-badge completed">
+                    <i class="fas fa-check-circle"></i>
+                    Event Completed
+                </div>
+                <h1>Basics of Programming Workshop</h1>
+                <p class="event-subtitle">A comprehensive introduction to fundamental programming concepts with hands-on learning and interactive challenges</p>
+                
+                <div class="event-meta-info">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <strong>Date</strong>
+                            <span>October 2, 2024</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Duration</strong>
+                            <span>3 Hours</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Venue</strong>
+                            <span>SVPCET Computer Lab</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <strong>Participants</strong>
+                            <span>45 Students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="event-hero-image">
+                <div class="image-container" style="position: relative; width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden;">
+                    <img 
+                        src="../images/events/programming-workshop.jpg" 
+                        alt="Basics of Programming Workshop"
+                        style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="event-details">
+        <div class="container">
+            <div class="event-content">
+                <div class="event-main">
+                    <div class="section">
+                        <h2>About the Workshop</h2>
+                        <p>The "Basics of Programming" workshop was designed to introduce participants to fundamental programming concepts, focusing on the C programming language, pseudocode, algorithms, and flowcharts. This comprehensive workshop provided a solid foundation for beginners while reinforcing core concepts for intermediate learners.</p>
+                        
+                        <p>The workshop combined theoretical learning with practical application through interactive activities, including the exciting "Decode Derby" competition that challenged participants to apply their newly acquired knowledge in a fun, competitive environment.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Objectives</h2>
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>C Programming Fundamentals</h4>
+                                    <p>Learn syntax, data types, and basic operations in C programming language</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-sitemap"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Algorithm Design</h4>
+                                    <p>Understand pseudocode structure and algorithm development techniques</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Flowchart Creation</h4>
+                                    <p>Master flowcharting symbols, conventions, and visualization techniques</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Interactive Learning</h4>
+                                    <p>Engage through Q&A sessions, quizzes, and collaborative activities</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Agenda</h2>
+                        <div class="problem-statements">
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-play-circle"></i> Introduction to Programming</h4>
+                                    <span class="difficulty easy">Beginner</span>
+                                </div>
+                                <p>Overview of programming significance and introduction to C programming language fundamentals including syntax and data types.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Theory</span>
+                                    <span class="tag">C Language</span>
+                                    <span class="tag">Basics</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-list-alt"></i> Pseudocode & Algorithms</h4>
+                                    <span class="difficulty medium">Intermediate</span>
+                                </div>
+                                <p>Learn pseudocode structure, usage patterns, and understand algorithm definition, importance, and practical examples.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Algorithms</span>
+                                    <span class="tag">Problem Solving</span>
+                                    <span class="tag">Logic</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-share-alt"></i> Flowcharts & Visualization</h4>
+                                    <span class="difficulty medium">Intermediate</span>
+                                </div>
+                                <p>Introduction to flowcharting symbols, conventions, and creating flowcharts to visualize algorithm logic and flow.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Flowcharts</span>
+                                    <span class="tag">Visualization</span>
+                                    <span class="tag">Design</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-gamepad"></i> Decode Derby Competition</h4>
+                                    <span class="difficulty hard">Challenge</span>
+                                </div>
+                                <p>Team-based coding challenges including pseudocode writing, flowchart creation, and simple C program development.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Competition</span>
+                                    <span class="tag">Team Work</span>
+                                    <span class="tag">Practical</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Decode Derby Details</h2>
+                        <div class="prizes-section">
+                            <div class="prize-pool">
+                                <h3>Interactive Team Competition</h3>
+                            </div>
+                            <div class="prizes-grid">
+                                <div class="prize-card winner-first">
+                                    <div class="prize-icon">🎯</div>
+                                    <h4>Objective</h4>
+                                    <div class="prize-amount">Problem Solving</div>
+                                    <ul class="prize-benefits">
+                                        <li>Coding Challenges</li>
+                                        <li>Puzzle Solutions</li>
+                                        <li>Point-based Scoring</li>
+                                        <li>Team Collaboration</li>
+                                    </ul>
+                                </div>
+                                <div class="prize-card winner-second">
+                                    <div class="prize-icon">⚡</div>
+                                    <h4>Gameplay Rules</h4>
+                                    <div class="prize-amount">Team Format</div>
+                                    <ul class="prize-benefits">
+                                        <li>2-3 Member Teams</li>
+                                        <li>Timed Challenges</li>
+                                        <li>Accuracy Based Points</li>
+                                        <li>Creativity Bonus</li>
+                                    </ul>
+                                </div>
+                                <div class="prize-card winner-third">
+                                    <div class="prize-icon">💡</div>
+                                    <h4>Challenge Types</h4>
+                                    <div class="prize-amount">Varied Tasks</div>
+                                    <ul class="prize-benefits">
+                                        <li>Pseudocode Writing</li>
+                                        <li>Flowchart Design</li>
+                                        <li>C Program Coding</li>
+                                        <li>Algorithm Analysis</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Highlights</h2>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../images/events/workshop-session1.jpg" alt="C Programming Introduction">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/workshop-session2.jpg" alt="Interactive Q&A Session">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/decode-derby1.jpg" alt="Decode Derby Competition">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/decode-derby2.jpg" alt="Team Collaboration">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Participant Feedback</h2>
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Clear Explanations</h4>
+                                    <p>Participants appreciated the structured approach and clarity of topic presentations</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Interactive Activities</h4>
+                                    <p>Quizzes and Decode Derby enhanced engagement and practical understanding</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Future Suggestions</h4>
+                                    <p>Requests for additional hands-on coding sessions in upcoming workshops</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Positive Experience</h4>
+                                    <p>Memorable learning experience combining theory with practical application</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Workshop Statistics</h3>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="stat-number">45</span>
+                                <span class="stat-label">Participants</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">12</span>
+                                <span class="stat-label">Teams</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Hours</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Facilitators</h3>
+                        <div class="judges-list">
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=PD" alt="Parth Dange">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Parth Dange</h4>
+                                    <p>Workshop Coordinator</p>
+                                    <small>parthnageshdange@gmail.com</small>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=MA" alt="Mayur Aglawe">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Mayur Aglawe</h4>
+                                    <p>Co-Coordinator</p>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=GG" alt="Gargi Gundawar">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Gargi Gundawar</h4>
+                                    <p>Team Member</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Topics Covered</h3>
+                        <ul class="bring-list">
+                            <li><i class="fas fa-code"></i> C Programming Basics</li>
+                            <li><i class="fas fa-list"></i> Pseudocode Structure</li>
+                            <li><i class="fas fa-sitemap"></i> Algorithm Design</li>
+                            <li><i class="fas fa-project-diagram"></i> Flowchart Creation</li>
+                            <li><i class="fas fa-question-circle"></i> Interactive Q&A</li>
+                            <li><i class="fas fa-quiz"></i> Knowledge Quizzes</li>
+                            <li><i class="fas fa-gamepad"></i> Decode Derby</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Key Learning Outcomes</h3>
+                        <div class="sponsors-list" style="text-align: left;">
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Understanding of C programming fundamentals</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Ability to write pseudocode effectively</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Skills in algorithm design and analysis</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Proficiency in creating flowcharts</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Enhanced problem-solving skills</p>
+                            <p><strong>✓</strong> Team collaboration experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="brand-icon">
+                            <img src="images/svpcet-acm-logo.png" alt="ACM SVPCET Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                        </div>
+                        <div class="brand-text">
+                            <h3>ACM SVPCET</h3>
+                            <p>Student Chapter</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Empowering future tech leaders through innovation, collaboration, and excellence.
+                    </p>
+                    <button class="btn btn-primary">Join Us Today</button>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#domains">Domains</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Domains</h4>
+                    <ul class="footer-links">
+                        <li>Technical</li>
+                        <li>Competitive Programming</li>
+                        <li>Web Development</li>
+                        <li>Management</li>
+                        <li>Creative</li>
+                        <li>Publicity</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>SVPCET, Gavasi Manapur, Wardha Road, Nagpur - 441108</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>acm@svpcet.ac.in</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+91 712 123 4567</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SVPCET ACM Student Chapter. All Rights Reserved. | Designed with ❤️ by ACM Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

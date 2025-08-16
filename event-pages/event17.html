@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter Workshop - SVPCET ACM Student Chapter</title>
+    <meta name="description" content="Two-day workshop introducing Flutter and Dart for cross-platform app development with hands-on exercises.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-scrolled" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <img src="images/svpcet-acm-logo.png" alt="ACM SVPCET Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                </div>
+                <div class="brand-text">
+                    <h1>ACM SVPCET</h1>
+                    <p>Student Chapter</p>
+                </div>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#about" class="nav-link">About</a>
+                <a href="../index.html#domains" class="nav-link">Domains</a>
+                <a href="../events.html" class="nav-link">Events</a>
+                <a href="../team.html" class="nav-link">Team</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <button class="btn btn-primary">Join Us</button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Hero -->
+    <section class="event-hero workshop-hero">
+        <div class="container">
+            <div class="event-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="events.html">Events</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Flutter Workshop</span>
+                </div>
+                <div class="event-status-badge completed">
+                    <i class="fas fa-check-circle"></i>
+                    Event Completed
+                </div>
+                <h1>Flutter Workshop</h1>
+                <p class="event-subtitle">A two-day introduction to Flutter and Dart for cross-platform app development with hands-on learning</p>
+                
+                <div class="event-meta-info">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <strong>Date</strong>
+                            <span>August 27 & 30, 2024</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Duration</strong>
+                            <span>2 Days</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Venue</strong>
+                            <span>SVPCET Computer Lab</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <strong>Participants</strong>
+                            <span>Second-Year Students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="event-hero-image">
+                <div class="image-container" style="position: relative; width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden;">
+                    <img 
+                        src="../images/events/flutter-workshop.jpg" 
+                        alt="Flutter Workshop"
+                        style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="event-details">
+        <div class="container">
+            <div class="event-content">
+                <div class="event-main">
+                    <div class="section">
+                        <h2>About the Workshop</h2>
+                        <p>The "Flutter Workshop" was a two-day event hosted by the ACM Student Chapter of the Department of Computer Engineering on August 27th and 30th, 2024. Tailored for second-year students, Day 1 was attended by Section A, and Day 2 by Section B. The workshop provided a comprehensive introduction to Flutter and the Dart programming language, focusing on cross-platform app development for Android and iOS.</p>
+                        
+                        <p>Led by third-year students and guided by Prof. Pallavi Wankhede, the sessions included setting up the Flutter environment, learning Dart basics, and hands-on exercises where participants built basic applications. The interactive format fostered enthusiasm and practical learning, equipping students with the skills to pursue their own app development projects.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Objectives</h2>
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Flutter Fundamentals</h4>
+                                    <p>Learn the basics of Flutter for cross-platform app development</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Dart Programming</h4>
+                                    <p>Understand Dart syntax and its role in Flutter development</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Environment Setup</h4>
+                                    <p>Master the setup of Flutter development tools and environment</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Hands-On Learning</h4>
+                                    <p>Build basic applications through practical exercises</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Agenda</h2>
+                        <div class="problem-statements">
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-play-circle"></i> Introduction to Flutter</h4>
+                                    <span class="difficulty easy">Beginner</span>
+                                </div>
+                                <p>Overview of Flutter’s history, benefits, and significance for cross-platform app development.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Theory</span>
+                                    <span class="tag">Flutter</span>
+                                    <span class="tag">Introduction</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-cogs"></i> Setting Up Flutter</h4>
+                                    <span class="difficulty easy">Beginner</span>
+                                </div>
+                                <p>Guide to installing and configuring the Flutter development environment and tools.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Setup</span>
+                                    <span class="tag">Tools</span>
+                                    <span class="tag">Environment</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-code"></i> Dart Programming Basics</h4>
+                                    <span class="difficulty medium">Intermediate</span>
+                                </div>
+                                <p>Introduction to Dart syntax, data types, and programming constructs for Flutter development.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Dart</span>
+                                    <span class="tag">Programming</span>
+                                    <span class="tag">Basics</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-mobile-alt"></i> Building Basic Apps</h4>
+                                    <span class="difficulty medium">Intermediate</span>
+                                </div>
+                                <p>Hands-on exercises to create simple cross-platform applications using Flutter and Dart.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Practical</span>
+                                    <span class="tag">App Development</span>
+                                    <span class="tag">Hands-On</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Highlights</h2>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../images/events/flutter-session1.jpg" alt="Flutter Introduction">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/flutter-session2.jpg" alt="Dart Programming Session">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/flutter-hands-on.jpg" alt="Hands-On App Building">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/flutter-group.jpg" alt="Student Collaboration">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Participant Feedback</h2>
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Engaging Sessions</h4>
+                                    <p>Students appreciated the interactive and dynamic teaching approach</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Practical Learning</h4>
+                                    <p>Hands-on exercises helped solidify Flutter and Dart concepts</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Future Suggestions</h4>
+                                    <p>Requests for advanced Flutter workshops and project-based sessions</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Positive Experience</h4>
+                                    <p>Students gained confidence to pursue app development projects</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Workshop Statistics</h3>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="stat-number">60</span>
+                                <span class="stat-label">Participants</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Days</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4</span>
+                                <span class="stat-label">Facilitators</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">90%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Facilitators</h3>
+                        <div class="judges-list">
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=PU" alt="Parth Upadhye">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Parth Upadhye</h4>
+                                    <p>Team Lead</p>
+                                    <small>parthupadhye@gmail.com</small>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=NA" alt="Nakul Armarkar">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Nakul Armarkar</h4>
+                                    <p>Facilitator</p>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=ED" alt="Elasha Deoghare">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Elasha Deoghare</h4>
+                                    <p>Facilitator</p>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=RA" alt="Rudraksha Asati">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Rudraksha Asati</h4>
+                                    <p>Facilitator</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Topics Covered</h3>
+                        <ul class="bring-list">
+                            <li><i class="fas fa-mobile-alt"></i> Flutter Introduction</li>
+                            <li><i class="fas fa-cogs"></i> Environment Setup</li>
+                            <li><i class="fas fa-code"></i> Dart Programming</li>
+                            <li><i class="fas fa-hands-helping"></i> Hands-On Exercises</li>
+                            <li><i class="fas fa-question-circle"></i> Interactive Q&A</li>
+                            <li><i class="fas fa-mobile"></i> App Development Basics</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Key Learning Outcomes</h3>
+                        <div class="sponsors-list" style="text-align: left;">
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Understanding Flutter framework</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Proficiency in Dart programming</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Ability to set up Flutter environment</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Skills in building basic apps</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Confidence in cross-platform development</p>
+                            <p><strong>✓</strong> Practical project experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="brand-icon">
+                            <img src="images/svpcet-acm-logo.png" alt="ACM SVPCET Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                        </div>
+                        <div class="brand-text">
+                            <h3>ACM SVPCET</h3>
+                            <p>Student Chapter</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Empowering future tech leaders through innovation, collaboration, and excellence.
+                    </p>
+                    <button class="btn btn-primary">Join Us Today</button>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#domains">Domains</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Domains</h4>
+                    <ul class="footer-links">
+                        <li>Technical</li>
+                        <li>Competitive Programming</li>
+                        <li>Web Development</li>
+                        <li>Management</li>
+                        <li>Creative</li>
+                        <li>Publicity</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>SVPCET, Gavasi Manapur, Wardha Road, Nagpur - 441108</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>acm@svpcet.ac.in</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+91 712 123 4567</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SVPCET ACM Student Chapter. All Rights Reserved. | Designed with ❤️ by ACM Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

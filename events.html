@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events - SVPCET ACM Student Chapter</title>
+  <meta name="description"
+    content="Explore our exciting events, workshops, and competitions at SVPCET ACM Student Chapter" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- CSS -->
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="header.css">
+</head>
+
+<body>
+  <header class="College_Mission_Info">
+        <div onclick="window.location.href = 'https://stvincentngp.edu.in/'" class="College_Logo">
+            <img src="./images/svpcet-logo.png" alt="College_Logo" />
+        </div>
+        <div class="College_NamePlate">
+
+            <p>
+                <b class="svp">ST. VINCENT PALLOTTI</b> <br>
+                <b class="cet">COLLEGE ENGINEERING AND TECHNOLOGY, NAGPUR</b>
+                <br /><span>An Autonomous Institute</span>
+            </p>
+            <p class="h1"> Department of Computer Engineering </p>
+            <p class="h1">ACM CE Student Chapter</p>
+
+        </div>
+        <div onclick="window.location.href = 'https://www.acm.org/'" class="acm_Logo">
+            <img src="images/acm-o-logo.png" alt="acm_logo" />
+        </div>
+    </header>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- <div class="nav-brand">
+        <div class="brand-icon">
+          <img src="images/svpcet-acm-logo.png" alt="ACM SVPCET Logo"
+            style="width: 40px; height: 40px; object-fit: contain" />
+        </div>
+        <div class="brand-text">
+          <h1>ACM SVPCET</h1>
+          <p>Student Chapter</p>
+        </div>
+      </div> -->
+
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <!-- <a href="index.html#domains" class="nav-link">Domains</a> -->
+        <a href="events.html" class="nav-link active">Events</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <button onclick="window.location.href='c-form.html'" class="btn btn-primary">Join Us</button>
+      </div>
+
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Events</span>
+        </div>
+        <h1>Our Events</h1>
+        <p>
+          Discover our exciting workshops, competitions, and tech talks
+          designed to enhance your skills and knowledge
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Filter -->
+  <section class="events-filter">
+    <div class="container">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">
+          All Events
+        </button>
+        <button class="filter-btn" id="workshops" data-filter="workshop">Workshops</button>
+        <button class="filter-btn" data-filter="competition">
+          Competitions
+        </button>
+        <button class="filter-btn" data-filter="seminar">Seminars</button>
+        <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+        <select id="year-filter" class="filter-btn">
+          <option value="all">All Years</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Grid -->
+  <section class="events-section">
+    <div class="container">
+      <div class="events-year-section" data-year="2025">
+        <h2>SESSION 2025-26</h2>
+        <div class="events-grid" id="events-grid-2025">
+          <!-- Power BI Workshop (January) -->
+          <div class="event-card" data-category="workshop" data-year="2024">
+            <div class="event-image">
+              <img src="./images/events/power BI workshop poster 30 th jan.jpeg" alt="Power BI Workshop January" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  January 30, 2025
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  2 Hours Duration
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  BF-05
+                </div>
+              </div>
+              <h3>Power BI Workshop</h3>
+              <p>
+                Hands-on training in Power BI for 2nd year students, covering
+                installation, data extraction, report generation, and
+                dashboard creation for data visualization and analysis.
+              </p>
+              <a href="./event-pages/event19.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Poster Making Competition on Canva -->
+          <div class="event-card" data-category="competition" data-year="2024">
+            <div class="event-image">
+              <img src="./images/events/poster_making.jpg" alt="Poster Making Competition on Canva" />
+              <div class="event-category">Competition</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  January 30, 2025
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Online via Canva
+                </div>
+              </div>
+              <h3>Poster Making Competition on Canva</h3>
+              <p>
+                Creative competition for second-year students to design
+                digital posters on Independence Day and technical topics using
+                Canva, focusing on design principles and visual communication.
+              </p>
+              <a href="./event-pages/event10.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- ConvoSphere 2025 -->
+          <div class="event-card" data-category="competition" data-year="2024">
+            <div class="event-image">
+              <img src="./images/events/poster  conosphere.jpeg" alt="ConvoSphere 2025" />
+              <div class="event-category">Competition</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  January 31, 2025
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  2 Hours Duration
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  BF-05 (2nd Year Section Classroom)
+                </div>
+              </div>
+              <h3>ConvoSphere 2025</h3>
+              <p>
+                Debate event promoting critical thinking and communication on
+                technological trends, featuring rounds on fact vs. fiction and
+                ethical implications of innovations.
+              </p>
+              <a href="./event-pages/event20.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="event-card" data-category="seminar" data-year="2025">
+            <div class="event-image">
+              <img src="./images/visits/Persistent1.jpg" alt="Industry Visit" />
+              <div class="event-category">Visit</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  February 15, 2025
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  9:00 AM - 5:00 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Persistent Systems, Nagpur
+                </div>
+              </div>
+              <h3>ACM Visit - Persistent Systems</h3>
+              <p>
+                Educational visit to Persistent Systems featuring expert
+                sessions on GenAI's impact on programming and effective coding
+                with AI tools. Great industry exposure for students and
+                faculty.
+              </p>
+              <a href="./event-pages/event6.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Flutter (Android App Development) college level -->
+          <div class="event-card" data-category="workshop" data-year="2025">
+            <div class="event-image">
+              <img src="./images/events/hack.jpeg" alt="Flutter Android App Development" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  April 7, 2025
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  2:15 PM - 4:15 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Block B, 3rd Floor Auditorium
+                </div>
+              </div>
+              <h3>Flutter (Android App Development) college level</h3>
+              <p>
+                Hands-on workshop on Flutter for cross-platform mobile app
+                development, covering setup, Dart basics, UI design,
+                navigation, and state management. Targeted at 1st, 2nd, and
+                3rd year students.
+              </p>
+              <a href="./event-pages/event18.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="events-year-section" data-year="2024">
+        <h2>SESSION 2024-25</h2>
+
+        <div class="events-grid" id="events-grid-2024">
+          <!-- Flutter 101 - August 27 & 30, 2024 -->
+          <div class="event-card" data-category="workshop" data-year="2024">
+            <div class="event-image">
+              <img src="./images/events/flutter workshop poster .jpeg" alt="Flutter 101" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  August 27 & 30, 2024
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  CE Department
+                </div>
+              </div>
+              <h3>flutter 101</h3>
+              <p>
+                Two-day interactive workshop on Flutter for second-year
+                students, covering development environment setup, Dart
+                fundamentals, and cross-platform app building.
+              </p>
+              <a href="./event-pages/event17.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Fundamentals of C Programming Workshop - September 29, 2024 -->
+          <div class="event-card" data-category="workshop" data-year="2024">
+            <div class="event-image">
+              <img src="./images/events/p5.png" alt="Fundamentals of C Programming" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  September 29, 2024
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  3:00 PM - 6:00 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Online (Google Meet)
+                </div>
+              </div>
+              <h3>
+                Fundamentals of C Programming Workshop (Online workshop)
+              </h3>
+              <p>
+                Online session on C programming basics, environment setup,
+                debugging, and problem-solving, followed by the Code Arena-24
+                competition.
+              </p>
+              <a href="./event-pages/event16.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- workshop on Basics of Programming - October 2, 2024 -->
+          <div class="event-card" data-category="workshop" data-year="2024">
+            <div class="event-image">
+              <img src="./images/events/p2.png" alt="Basics of Programming Workshop" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  October 2, 2024
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  3 Hours Duration
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  CE Department
+                </div>
+              </div>
+              <h3>workshop on Basics of Programming</h3>
+              <p>
+                Introduction to programming concepts in C, including
+                pseudocode, algorithms, flowcharts, quizzes, and Decode Derby
+                coding challenges for active learning.
+              </p>
+              <a href="./event-pages/event15.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Bidcas workshop - October 2, 2024 -->
+          <div class="event-card" data-category="workshop" data-year="2024">
+            <div class="event-image">
+              <img src="./images/events/team Group photo .jpeg" alt="Bidcas Workshop" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  October 2, 2024
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  2:00 PM - 4:00 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Online (Google Meet)
+                </div>
+              </div>
+              <h3>Bidcas workshop</h3>
+              <p>
+                Online workshop on basics of C language and aptitude
+                fundamentals, aimed at building programming and
+                problem-solving skills through interactive sessions.
+              </p>
+              <a href="./event-pages/event14.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Power BI (October) - October 22, 2024 -->
+          <div class="event-card" data-category="workshop" data-year="2024">
+            <div class="event-image">
+              <img src="./images/events/30.1.25.jpeg" alt="Power BI Workshop October" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  October 22, 2024
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  2nd Yr-B (BF-05), CE Department
+                </div>
+              </div>
+              <h3>Power BI</h3>
+              <p>
+                Workshop on Power BI for data visualization, including
+                installation, web data scraping, integration, and report
+                creation with hands-on support from volunteers.
+              </p>
+              <a href="./event-pages/event13.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Power BI Workshop (December) - December 10, 2024 -->
+          <div class="event-card" data-category="workshop" data-year="2024">
+            <div class="event-image">
+              <img src="./images/events/bi 3.jpg" alt="Power BI Workshop" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  December 10, 2024
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  10:00 AM - 4:00 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Computer Lab 3
+                </div>
+              </div>
+              <h3>Power BI Workshop</h3>
+              <p>
+                Comprehensive Power BI workshop covering data visualization,
+                business analytics, and report generation. Participants gained
+                hands-on experience with Microsoft's powerful analytics tool.
+              </p>
+              <a href="./event-pages/event1.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="events-year-section" data-year="2023">
+        <h2>SESSION 2023-24</h2>
+        <div class="events-grid" id="events-grid-2023">
+          <!-- Event 7 -->
+          <div class="event-card" data-category="workshop" data-year="2023">
+            <div class="event-image">
+              <img src="./images/events/3d-mod.jpeg" alt="3D Modeling Workshop" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  November 2, 2023
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  9:00 AM - 1:00 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Computer Lab 1
+                </div>
+              </div>
+              <h3>3D Modeling Workshop with Fusion 360</h3>
+              <p>
+                A workshop on Autodesk's Fusion 360 focusing on 3D modeling
+                and simulation, attended by students from all years.
+              </p>
+              <a href="./event-pages/event7.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Event 8 -->
+          <div class="event-card" data-category="competition" data-year="2023">
+            <div class="event-image">
+              <img src="./images/events/quize.jpg" alt="Model Mystery" />
+              <div class="event-category">Competition</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  November 4, 2023
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  9:00 AM - 12:00 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Computer Lab 2
+                </div>
+              </div>
+              <h3>Model Mystery 3D Modeling Competition</h3>
+              <p>
+                A competition with a pre-round quiz and a final round for
+                designing 3D models, recognizing the top two designs.
+              </p>
+              <a href="./event-pages/event8.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Event 9 -->
+          <div class="event-card" data-category="competition" data-year="2023">
+            <div class="event-image">
+              <img src="./images/events/claude.jpg" alt="Cloud Carnival" />
+              <div class="event-category">Competition</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  November 4, 2023
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  10:00 AM - 2:00 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  BF-03
+                </div>
+              </div>
+              <h3>Cloud Carnival</h3>
+              <p>
+                An engaging event with an inauguration, MCQs on cloud
+                computing, and a task-oriented challenge, with active student
+                participation.
+              </p>
+              <a href="./event-pages/event9.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="events-year-section" data-year="2022">
+        <h2>SESSION 2022-23</h2>
+        <div class="events-grid" id="events-grid-2022">
+          <!-- WEB3CAMP - March 3-4, 2022 -->
+          <div class="event-card" data-category="workshop" data-year="2022">
+            <div class="event-image">
+              <img src="./images/events/ACM - webcamp first poster .jpeg" alt="WEB3CAMP" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  March 3-4, 2022
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  11:00 AM - 4:00 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Online & Offline
+                </div>
+              </div>
+              <h3>WEB3CAMP</h3>
+              <p>
+                A two-day national level bootcamp focusing on web3,
+                blockchain, solidity, smart contracts, and open source,
+                attended by over 80 students.
+              </p>
+              <a href="./event-pages/event10.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- TechTonic - March 5, 2022 -->
+          <div class="event-card" data-category="competition" data-year="2022">
+            <div class="event-image">
+              <img src="./images/events/techtonic.jpeg" alt="Technic" />
+              <div class="event-category">Competition</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  March 5, 2022
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  11:00 AM - 4:00 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Campus
+                </div>
+              </div>
+              <h3>TechTonic - Technical Fun Event</h3>
+              <p>
+                A fun event with three rounds (scribble, logo identification,
+                scratch programming) involving 125 students from various
+                branches.
+              </p>
+              <a href="./event-pages/event12.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Photoshop Workshop - April 21-22, 2022 -->
+          <div class="event-card" data-category="workshop" data-year="2022">
+            <div class="event-image">
+              <img src="./images/events/photo-2022-23.jpg" alt="Photoshop Workshop" />
+              <div class="event-category">Workshop</div>
+              <div class="event-status completed">Completed</div>
+            </div>
+            <div class="event-content">
+              <div class="event-meta">
+                <div class="event-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  April 21-22, 2022
+                </div>
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  1:30 PM - 4:00 PM
+                </div>
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Classroom
+                </div>
+              </div>
+              <h3>Photoshop Workshop</h3>
+              <p>
+                A two-day workshop for second-year students covering Photoshop
+                basics, tools, and layering, with a poster-making assignment.
+              </p>
+              <a href="./event-pages/event11.html" class="btn btn-outline">
+                View Details
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">
+            <div class="brand-icon">
+              <img src="images/svpcet-acm-logo.png" alt="ACM SVPCET Logo"
+                style="width: 40px; height: 40px; object-fit: contain" />
+            </div>
+            <div class="brand-text">
+              <h3>ACM SVPCET</h3>
+              <p>Student Chapter</p>
+            </div>
+          </div>
+          <p class="footer-description">
+            Empowering future tech leaders through innovation, collaboration,
+            and excellence.
+          </p>
+          <button class="btn btn-primary">Join Us Today</button>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#domains">Domains</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Domains</h4>
+          <ul class="footer-links">
+            <li>Technical</li>
+            <li>Competitive Programming</li>
+            <li>Web Development</li>
+            <li>Management</li>
+            <li>Creative</li>
+            <li>Publicity</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>SVPCET, Gavasi Manapur, Wardha Road, Nagpur - 441108</p>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <p>acm@svpcet.ac.in</p>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <p>+91 712 123 4567</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 SVPCET ACM Student Chapter. All Rights Reserved. |
+          Designed with ❤️ by ACM Team
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+  <script src="events-dynamic.js"></script>
+  <script>
+    // Events filter functionality
+    let applyFilters; // Make it globally accessible
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const yearFilter = document.getElementById("year-filter");
+      let eventCards = document.querySelectorAll(".event-card");
+      let yearSections = document.querySelectorAll(".events-year-section");
+
+      applyFilters = function() {
+        // Refresh event cards and year sections to include dynamically added ones
+        eventCards = document.querySelectorAll(".event-card");
+        yearSections = document.querySelectorAll(".events-year-section");
+        
+        const categoryFilter =
+          document
+            .querySelector(".filter-btn.active")
+            ?.getAttribute("data-filter") || "all";
+        const yearFilterValue = yearFilter.value;
+
+        // Show/hide year sections based on year filter
+        yearSections.forEach((section) => {
+          const sectionYear = section.getAttribute("data-year");
+          if (yearFilterValue === "all" || yearFilterValue === sectionYear) {
+            section.style.display = "block";
+          } else {
+            section.style.display = "none";
+          }
+        });
+
+        // Filter event cards within visible year sections
+        eventCards.forEach((card) => {
+          const cardYear = card.getAttribute("data-year");
+          const cardCategory = card.getAttribute("data-category");
+          const status = card.querySelector(".event-status");
+          const isUpcoming = status && status.classList.contains("upcoming");
+
+          const yearMatch =
+            yearFilterValue === "all" || yearFilterValue === cardYear;
+          let categoryMatch = false;
+
+          if (categoryFilter === "all") {
+            categoryMatch = true;
+          } else if (categoryFilter === "upcoming") {
+            categoryMatch = isUpcoming;
+          } else {
+            categoryMatch = cardCategory === categoryFilter;
+          }
+
+          if (yearMatch && categoryMatch) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      // Category filter button event listeners
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          if (!this.classList.contains("filter-btn")) return; // Skip the year filter select
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          this.classList.add("active");
+          applyFilters();
+        });
+      });
+
+      // Year filter event listener
+      yearFilter.addEventListener("change", applyFilters);
+
+      // Initial filter application
+      applyFilters();
+    });
+  </script>
+</body>
+
+</html>

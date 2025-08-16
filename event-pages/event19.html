@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power BI Workshop - SVPCET ACM Student Chapter</title>
+    <meta name="description" content="A hands-on workshop introducing Power BI for data visualization, dashboard creation, and report generation.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-scrolled" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <img src="images/svpcet-acm-logo.png" alt="ACM SVPCET Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                </div>
+                <div class="brand-text">
+                    <h1>ACM SVPCET</h1>
+                    <p>Student Chapter</p>
+                </div>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../index.html#about" class="nav-link">About</a>
+                <a href="../index.html#domains" class="nav-link">Domains</a>
+                <a href="../events.html" class="nav-link">Events</a>
+                <a href="../team.html" class="nav-link">Team</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <button class="btn btn-primary">Join Us</button>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Event Hero -->
+    <section class="event-hero workshop-hero">
+        <div class="container">
+            <div class="event-hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="events.html">Events</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Power BI Workshop</span>
+                </div>
+                <div class="event-status-badge completed">
+                    <i class="fas fa-check-circle"></i>
+                    Event Completed
+                </div>
+                <h1>Power BI Workshop</h1>
+                <p class="event-subtitle">A hands-on introduction to Power BI for creating interactive dashboards and professional data reports</p>
+                
+                <div class="event-meta-info">
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <strong>Date</strong>
+                            <span>January 30, 2025</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Duration</strong>
+                            <span>2 Hours</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Venue</strong>
+                            <span>BF-05</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <strong>Participants</strong>
+                            <span>70 Students</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="event-hero-image">
+                <div class="image-container" style="position: relative; width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden;">
+                    <img 
+                        src="../images/events/power-bi-workshop.jpg" 
+                        alt="Power BI Workshop"
+                        style="width: 100%; height: auto; display: block;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="event-details">
+        <div class="container">
+            <div class="event-content">
+                <div class="event-main">
+                    <div class="section">
+                        <h2>About the Workshop</h2>
+                        <p>The Power BI Workshop, organized by the Department of Computer Engineering in collaboration with the ACM Student Chapter on January 30, 2025, provided 70 second-year students from Section A with hands-on experience in data visualization and analysis. Led by Atharva Bhede (Technical Lead), the workshop focused on empowering participants to create interactive dashboards and professional reports using Power BI.</p>
+                        
+                        <p>With guidance from Prof. Yogita Nikhare and student coordinators, the session included practical exercises on data extraction, transformation, and report generation. The interactive format and dedicated volunteer support ensured an engaging and effective learning experience, equipping students with valuable skills for data-driven decision-making.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Objectives</h2>
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Data Visualization</h4>
+                                    <p>Learn to create interactive dashboards using Power BI</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Data Extraction</h4>
+                                    <p>Understand how to import and transform data effectively</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Report Generation</h4>
+                                    <p>Master the creation of professional data reports</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Tool Proficiency</h4>
+                                    <p>Gain confidence in using Power BI’s advanced features</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Agenda</h2>
+                        <div class="problem-statements">
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-play-circle"></i> Introduction to Power BI</h4>
+                                    <span class="difficulty easy">Beginner</span>
+                                </div>
+                                <p>Overview of Power BI and its role in data visualization and analysis.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Theory</span>
+                                    <span class="tag">Power BI</span>
+                                    <span class="tag">Introduction</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-cogs"></i> Installation and Setup</h4>
+                                    <span class="difficulty easy">Beginner</span>
+                                </div>
+                                <p>Guide to installing and configuring Power BI for data analysis.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Setup</span>
+                                    <span class="tag">Tools</span>
+                                    <span class="tag">Environment</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-database"></i> Data Extraction & Transformation</h4>
+                                    <span class="difficulty medium">Intermediate</span>
+                                </div>
+                                <p>Learn techniques for importing and transforming data in Power BI.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Data</span>
+                                    <span class="tag">Transformation</span>
+                                    <span class="tag">Processing</span>
+                                </div>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-header">
+                                    <h4><i class="fas fa-chart-line"></i> Dashboard & Report Creation</h4>
+                                    <span class="difficulty medium">Intermediate</span>
+                                </div>
+                                <p>Hands-on exercises to build interactive dashboards and reports.</p>
+                                <div class="problem-tags">
+                                    <span class="tag">Dashboards</span>
+                                    <span class="tag">Reports</span>
+                                    <span class="tag">Practical</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Workshop Highlights</h2>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="../images/events/power-bi-session1.jpg" alt="Power BI Introduction">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/power-bi-session2.jpg" alt="Data Extraction Session">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/power-bi-hands-on.jpg" alt="Dashboard Creation">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="../images/events/power-bi-group.jpg" alt="Student Collaboration">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Participant Feedback</h2>
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Clear Instruction</h4>
+                                    <p>Participants valued the clear and structured teaching approach</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Hands-On Practice</h4>
+                                    <p>Practical exercises enhanced understanding of Power BI tools</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Future Suggestions</h4>
+                                    <p>Requests for advanced Power BI workshops and real-world projects</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h4>Enhanced Confidence</h4>
+                                    <p>Students gained skills for data-driven decision-making</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Workshop Statistics</h3>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="stat-number">70</span>
+                                <span class="stat-label">Participants</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Hours</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">6</span>
+                                <span class="stat-label">Coordinators</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Coordinators</h3>
+                        <div class="judges-list">
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=YN" alt="Prof. Yogita Nikhare">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Prof. Yogita Nikhare</h4>
+                                    <p>Faculty Coordinator</p>
+                                    <small>yogita.nikhare@svpcet.ac.in</small>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=MG" alt="Manasvi Giradkar">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Manasvi Giradkar</h4>
+                                    <p>Student Coordinator</p>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=AB" alt="Atharva Bhede">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Atharva Bhede</h4>
+                                    <p>Technical Lead</p>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=MA" alt="Mayur Aglawe">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Mayur Aglawe</h4>
+                                    <p>Volunteer</p>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=GG" alt="Gargi Gundawar">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Gargi Gundawar</h4>
+                                    <p>Volunteer</p>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=PM" alt="Paritosh Magare">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Paritosh Magare</h4>
+                                    <p>Volunteer</p>
+                                </div>
+                            </div>
+                            <div class="judge">
+                                <div class="judge-avatar">
+                                    <img src="/placeholder.svg?height=50&width=50&text=AK" alt="Ayush Kshirsagar">
+                                </div>
+                                <div class="judge-info">
+                                    <h4>Ayush Kshirsagar</h4>
+                                    <p>Volunteer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Topics Covered</h3>
+                        <ul class="bring-list">
+                            <li><i class="fas fa-chart-bar"></i> Power BI Introduction</li>
+                            <li><i class="fas fa-cogs"></i> Installation & Setup</li>
+                            <li><i class="fas fa-database"></i> Data Extraction</li>
+                            <li><i class="fas fa-chart-line"></i> Dashboard Creation</li>
+                            <li><i class="fas fa-file-alt"></i> Report Generation</li>
+                            <li><i class="fas fa-question-circle"></i> Interactive Q&A</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Key Learning Outcomes</h3>
+                        <div class="sponsors-list" style="text-align: left;">
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Proficiency in Power BI tools</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Skills in data extraction and transformation</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Ability to create interactive dashboards</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Competence in generating professional reports</p>
+                            <p style="margin-bottom: 10px;"><strong>✓</strong> Confidence in data-driven decision-making</p>
+                            <p><strong>✓</strong> Enhanced analytical skills</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="brand-icon">
+                            <img src="images/svpcet-acm-logo.png" alt="ACM SVPCET Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                        </div>
+                        <div class="brand-text">
+                            <h3>ACM SVPCET</h3>
+                            <p>Student Chapter</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Empowering future tech leaders through innovation, collaboration, and excellence.
+                    </p>
+                    <button class="btn btn-primary">Join Us Today</button>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#domains">Domains</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Domains</h4>
+                    <ul class="footer-links">
+                        <li>Technical</li>
+                        <li>Competitive Programming</li>
+                        <li>Web Development</li>
+                        <li>Management</li>
+                        <li>Creative</li>
+                        <li>Publicity</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>SVPCET, Gavasi Manapur, Wardha Road, Nagpur - 441108</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>acm@svpcet.ac.in</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+91 712 123 4567</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SVPCET ACM Student Chapter. All Rights Reserved. | Designed with ❤️ by ACM Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
