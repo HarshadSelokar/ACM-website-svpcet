@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACM Admin Dashboard - SVPCET</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="admin-dashboard.css">
     <!-- Firebase CDN -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 </head>
+
 <body>
     <!-- Firebase Login Form -->
-    <div id="login-container" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
-        <form id="login-form" style="background: #fff; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); min-width: 320px;">
+    <div id="login-container"
+        style="display: flex; align-items: center; justify-content: center; height: 100vh;  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <form id="login-form"
+            style="background: #ffffff38; padding: 2rem; border-radius: 1rem; border: 1px solid white; box-shadow: 0 4px 20px rgba(0,0,0,0.1); min-width: 320px;">
             <h2 style="text-align:center; margin-bottom: 1.5rem;">Admin Login</h2>
             <div class="form-group" style="margin-bottom: 1rem;">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-input" required style="width:100%; padding:0.5rem;">
+                <input type="email" id="email" name="email" class="form-input" required
+                    style="width:100%; padding:0.5rem;">
             </div>
             <div class="form-group" style="margin-bottom: 1rem;">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-input" required style="width:100%; padding:0.5rem;">
+                <input type="password" id="password" name="password" class="form-input" required
+                    style="width:100%; padding:0.5rem;">
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;">Login</button>
+            <button type="submit" class="btn btn-primary" style="    display: flex
+;
+    justify-self: center;">Login</button>
             <div id="login-error" style="color:#ef4444; margin-top:1rem; text-align:center; display:none;"></div>
         </form>
     </div>
@@ -212,6 +221,7 @@
                                     <th>Category</th>
                                     <th>Status</th>
                                     <th>Date</th>
+                                    <th>Session Year</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -269,7 +279,7 @@
                                 <input type="date" id="fromDate" class="form-input" placeholder="From Date">
                                 <input type="date" id="toDate" class="form-input" placeholder="To Date">
                                 <button class="btn btn-primary" onclick="exportCommunitySubmissions()">
-                                    <i class="fas fa-download"></i> Export to Excel
+                                    <i class="fas fa-download"></i> Export
                                 </button>
                             </div>
                         </div>
@@ -327,25 +337,30 @@
                             <option value="4th Year">4th Year</option>
                         </select>
                     </div>
-                                         <div class="form-group">
-                         <label class="form-label">Session Year *</label>
-                         <div class="session-year-container">
-                             <select class="form-input" name="session_year" id="memberSessionYear" required>
-                                 <option value="">Select Session</option>
-                                 <option value="2025-26">2025-26</option>
-                                 <option value="2024-25">2024-25</option>
-                                 <option value="2023-24">2023-24</option>
-                             </select>
-                             <button type="button" class="btn btn-secondary btn-sm" onclick="showCustomSessionInput('member')" style="margin-left: 10px;">
-                                 <i class="fas fa-plus"></i> Add New
-                             </button>
-                         </div>
-                         <div id="customSessionInputMember" class="custom-session-input" style="display: none; margin-top: 10px;">
-                             <input type="text" class="form-input" id="newSessionYearMember" placeholder="Enter new session year (e.g., 2026-27)" style="margin-bottom: 10px;">
-                             <button type="button" class="btn btn-primary btn-sm" onclick="addNewSessionYear('member')">Add Session</button>
-                             <button type="button" class="btn btn-secondary btn-sm" onclick="hideCustomSessionInput('member')" style="margin-left: 5px;">Cancel</button>
-                         </div>
-                     </div>
+                    <div class="form-group">
+                        <label class="form-label">Session Year *</label>
+                        <div class="session-year-container">
+                            <select class="form-input" name="session_year" id="memberSessionYear" required>
+                                <option value="">Select Session</option>
+                                <option value="2025-26">2025-26</option>
+                                <option value="2024-25">2024-25</option>
+                                <option value="2023-24">2023-24</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="showCustomSessionInput('member')" style="margin-left: 10px;">
+                                <i class="fas fa-plus"></i> Add New
+                            </button>
+                        </div>
+                        <div id="customSessionInputMember" class="custom-session-input"
+                            style="display: none; margin-top: 10px;">
+                            <input type="text" class="form-input" id="newSessionYearMember"
+                                placeholder="Enter new session year (e.g., 2026-27)" style="margin-bottom: 10px;">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="addNewSessionYear('member')">Add Session</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="hideCustomSessionInput('member')" style="margin-left: 5px;">Cancel</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Description</label>
@@ -353,7 +368,8 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Expertise (comma separated)</label>
-                    <input type="text" class="form-input" name="expertise" placeholder="e.g., Web Development, AI, Leadership">
+                    <input type="text" class="form-input" name="expertise"
+                        placeholder="e.g., Web Development, AI, Leadership">
                 </div>
                 <div class="form-row">
                     <div class="form-group">
@@ -367,10 +383,6 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Twitter</label>
-                        <input type="url" class="form-input" name="twitter">
-                    </div>
-                    <div class="form-group">
                         <label class="form-label">Instagram</label>
                         <input type="url" class="form-input" name="instagram">
                     </div>
@@ -380,7 +392,8 @@
                     <input type="file" class="form-input" name="image" accept="image/*">
                 </div>
                 <div style="display: flex; gap: 1rem; justify-content: flex-end;">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('addMemberModal')">Cancel</button>
+                    <button type="button" class="btn btn-secondary"
+                        onclick="closeModal('addMemberModal')">Cancel</button>
                     <button type="submit" class="btn btn-primary">Add Member</button>
                 </div>
             </form>
@@ -445,27 +458,32 @@
                     <textarea class="form-input form-textarea" name="description" rows="4"></textarea>
                 </div>
                 <div class="form-row">
-                                         <div class="form-group">
-                         <label class="form-label">Year *</label>
-                         <div class="session-year-container">
-                             <select class="form-input" name="year" id="eventYear" required>
-                                 <option value="">Select Year</option>
-                                 <option value="2025">2025</option>
-                                 <option value="2024">2024</option>
-                                 <option value="2023">2023</option>
-                             </select>
-                             <button type="button" class="btn btn-secondary btn-sm" onclick="showCustomSessionInput('event')" style="margin-left: 10px;">
-                                 <i class="fas fa-plus"></i> Add New
-                             </button>
-                         </div>
-                         <div id="customSessionInputEvent" class="custom-session-input" style="display: none; margin-top: 10px;">
-                             <input type="text" class="form-input" id="newSessionYearEvent" placeholder="Enter new year (e.g., 2026)" style="margin-bottom: 10px;">
-                             <button type="button" class="btn btn-primary btn-sm" onclick="addNewSessionYear('event')">Add Year</button>
-                             <button type="button" class="btn btn-secondary btn-sm" onclick="hideCustomSessionInput('event')" style="margin-left: 5px;">Cancel</button>
-                         </div>
-                     </div>
                     <div class="form-group">
-                        <label class="form-label">Event Page URL</label>
+                        <label class="form-label">Session Year *</label>
+                        <div class="session-year-container">
+                            <select class="form-input" name="session_year" id="eventSessionYear" required>
+                                <option value="">Select Session</option>
+                                <option value="2025-26">2025-26</option>
+                                <option value="2024-25">2024-25</option>
+                                <option value="2023-24">2023-24</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="showCustomSessionInput('event')" style="margin-left: 10px;">
+                                <i class="fas fa-plus"></i> Add New
+                            </button>
+                        </div>
+                        <div id="customSessionInputEvent" class="custom-session-input"
+                            style="display: none; margin-top: 10px;">
+                            <input type="text" class="form-input" id="newSessionYearEvent"
+                                placeholder="Enter new session year (e.g., 2026-27)" style="margin-bottom: 10px;">
+                            <button type="button" class="btn btn-primary btn-sm"
+                                onclick="addNewSessionYear('event')">Add Session</button>
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                onclick="hideCustomSessionInput('event')" style="margin-left: 5px;">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Event Page URL (optional)</label>
                         <input type="url" class="form-input" name="event_page_url" placeholder="e.g., ./event-pages/event21.html">
                     </div>
                 </div>
@@ -474,7 +492,8 @@
                     <input type="file" class="form-input" name="image" accept="image/*">
                 </div>
                 <div style="display: flex; gap: 1rem; justify-content: flex-end;">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('addEventModal')">Cancel</button>
+                    <button type="button" class="btn btn-secondary"
+                        onclick="closeModal('addEventModal')">Cancel</button>
                     <button type="submit" class="btn btn-primary">Add Event</button>
                 </div>
             </form>
@@ -496,4 +515,5 @@
 
     <script src="admin-dashboard.js"></script>
 </body>
+
 </html>

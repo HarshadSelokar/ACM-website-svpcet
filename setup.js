@@ -4,7 +4,7 @@ require('dotenv').config({ path: './config.env' });
 const dbConfig = {
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
+    password: process.env.DB_PASSWORD || 'anuj@123',
     database: process.env.DB_NAME || 'acm_dashboard'
 };
 

@@ -61,6 +61,43 @@ function showSection(section) {
 }
 
 // Modal functions
+// Edit Member logic
+let editingMemberId = null;
+
+async function editMember(id) {
+    // Fetch member data by ID
+    try {
+        const response = await fetch(`${API_BASE}/members/${id}`);
+        if (!response.ok) throw new Error('Failed to fetch member');
+        const member = await response.json();
+
+        // Populate modal fields
+            // Sort events by session year (descending, newer first)
+            events.sort((a, b) => {
+                // Expect session_year format: '2026-27', fallback to year
+                const getSessionYear = e => e.session_year || e.year || '';
+                // Compare by first 4 digits (YYYY)
+                return getSessionYear(b).localeCompare(getSessionYear(a));
+            });
+        document.getElementById('addMemberModal').style.display = 'flex';
+        document.querySelector('#addMemberModal .form-title').textContent = 'Edit Member';
+        document.querySelector('#addMemberForm [name="name"]').value = member.name || '';
+        document.querySelector('#addMemberForm [name="role"]').value = member.role || '';
+        document.querySelector('#addMemberForm [name="year"]').value = member.year || '';
+        document.querySelector('#addMemberForm [name="session_year"]').value = member.session_year || '';
+        document.querySelector('#addMemberForm [name="description"]').value = member.description || '';
+        document.querySelector('#addMemberForm [name="expertise"]').value = member.expertise || '';
+        document.querySelector('#addMemberForm [name="linkedin"]').value = member.linkedin || '';
+        document.querySelector('#addMemberForm [name="github"]').value = member.github || '';
+        document.querySelector('#addMemberForm [name="instagram"]').value = member.instagram || '';
+        // Image field left blank for security
+
+        editingMemberId = id;
+    } catch (error) {
+        alert('Error loading member for edit');
+        editingMemberId = null;
+    }
+}
 function showAddMemberForm() {
     document.getElementById('addMemberModal').style.display = 'flex';
 }
@@ -74,6 +111,8 @@ function closeModal(modalId) {
     if (modalId === 'addMemberModal') {
         document.getElementById('addMemberForm').reset();
         hideCustomSessionInput('member');
+        editingMemberId = null;
+        document.querySelector('#addMemberModal .form-title').textContent = 'Add New Member';
     } else if (modalId === 'addEventModal') {
         document.getElementById('addEventForm').reset();
         hideCustomSessionInput('event');
@@ -95,7 +134,7 @@ async function loadDashboardStats() {
         console.error('Error loading dashboard stats:', error);
     }
 }
-
+ let editingEventId = null;
 async function loadMembers() {
     try {
         const response = await fetch(`${API_BASE}/members`);
@@ -104,6 +143,39 @@ async function loadMembers() {
         const tbody = document.getElementById('membersTableBody');
         tbody.innerHTML = '';
         
+        // Edit Event logic
+       
+window.editEvent = editEvent;
+        async function editEvent(id) {
+            
+            // Fetch event data by ID
+            try {
+                const response = await fetch(`${API_BASE}/events/${id}`);
+                if (!response.ok) throw new Error('Failed to fetch event');
+                const event = await response.json();
+
+                // Populate modal fields
+                document.getElementById('addEventModal').style.display = 'flex';
+                document.querySelector('#addEventModal .form-title').textContent = 'Edit Event';
+                document.querySelector('#addEventForm [name="title"]').value = event.title || '';
+                document.querySelector('#addEventForm [name="category"]').value = event.category || '';
+                document.querySelector('#addEventForm [name="status"]').value = event.status || '';
+                document.querySelector('#addEventForm [name="event_date"]').value = event.event_date ? event.event_date.split('T')[0] : '';
+                document.querySelector('#addEventForm [name="event_time"]').value = event.event_time || '';
+                document.querySelector('#addEventForm [name="location"]').value = event.location || '';
+                document.querySelector('#addEventForm [name="duration"]').value = event.duration || '';
+                document.querySelector('#addEventForm [name="description"]').value = event.description || '';
+                document.querySelector('#addEventForm [name="year"]').value = event.year || '';
+                    document.querySelector('#addEventForm [name="session_year"]').value = event.session_year || event.year || '';
+                document.querySelector('#addEventForm [name="event_page_url"]').value = event.event_page_url || '';
+                // Image field left blank for security
+
+                editingEventId = id;
+            } catch (error) {
+                alert('Error loading event for edit');
+                editingEventId = null;
+            }
+        }
         members.forEach(member => {
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -141,30 +213,76 @@ async function loadEvents() {
         const tbody = document.getElementById('eventsTableBody');
         tbody.innerHTML = '';
         
+        // Group events by session year
+        const grouped = {};
         events.forEach(event => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>
-                    <img src="${event.image_path || './images/events/default.jpg'}" 
-                         alt="${event.title}" class="image-preview">
-                </td>
-                <td>${event.title}</td>
-                <td>${event.category}</td>
-                <td><span class="status-badge status-${event.status}">${event.status}</span></td>
-                <td>${new Date(event.event_date).toLocaleDateString()}</td>
-                <td>
-                    <div class="action-buttons">
-                        <button class="btn btn-secondary btn-sm" onclick="editEvent(${event.id})">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn btn-danger btn-sm" onclick="deleteEvent(${event.id})">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                </td>
-            `;
-            tbody.appendChild(row);
+            const session = event.session_year || event.year || 'Unknown';
+            if (!grouped[session]) grouped[session] = [];
+            grouped[session].push(event);
         });
+
+        // Sort session years descending (newest first)
+        const sessions = Object.keys(grouped).sort((a, b) => b.localeCompare(a));
+        tbody.innerHTML = '';
+        sessions.forEach(session => {
+            // Add session header row
+            const headerRow = document.createElement('tr');
+            headerRow.className = 'session-header-row';
+            headerRow.innerHTML = `<td colspan="7" style="font-weight:bold;background:#f3f4f6;">Session: ${session}</td>`;
+            tbody.appendChild(headerRow);
+            // Add event rows for this session
+            grouped[session].forEach(event => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <img src="${event.image_path || './images/events/default.jpg'}" 
+                             alt="${event.title}" class="image-preview">
+                    </td>
+                    <td>${event.title}</td>
+                    <td>${event.category}</td>
+                    <td>
+                        <select class="status-select" onchange="window.updateEventStatus(${event.id}, this.value)">
+                            <option value="upcoming" ${event.status === 'upcoming' ? 'selected' : ''}>Upcoming</option>
+                            <option value="completed" ${event.status === 'completed' ? 'selected' : ''}>Completed</option>
+                        </select>
+                    </td>
+                    <td>${new Date(event.event_date).toLocaleDateString()}</td>
+                    <td>${session}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-secondary btn-sm" onclick="editEvent(${event.id})">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteEvent(${event.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        });
+// Update event status from dashboard
+async function updateEventStatus(id, status) {
+    try {
+        const response = await fetch(`${API_BASE}/events/${id}/status`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ status })
+        });
+        if (response.ok) {
+            loadEvents();
+            loadDashboardStats();
+        } else {
+            alert('Failed to update status');
+        }
+    } catch (error) {
+        alert('Error updating status');
+    }
+}
+window.updateEventStatus = updateEventStatus;
     } catch (error) {
         console.error('Error loading events:', error);
     }
@@ -367,6 +485,10 @@ document.getElementById('addEventForm').addEventListener('submit', async (e) => 
     e.preventDefault();
     
     const formData = new FormData(e.target);
+        // If session_year exists, use it for year
+        if (formData.get('session_year')) {
+            formData.set('year', formData.get('session_year'));
+        }
     
     try {
         const response = await fetch(`${API_BASE}/events`, {
@@ -588,21 +710,13 @@ function addNewSessionYear(type) {
     }
     
     // Validate format
-    if (type === 'member') {
-        // For members: expect format like "2026-27"
-        if (!/^\d{4}-\d{2}$/.test(newValue)) {
-            alert('Please enter session year in format: YYYY-YY (e.g., 2026-27)');
-            return;
-        }
-    } else {
-        // For events: expect format like "2026"
-        if (!/^\d{4}$/.test(newValue)) {
-            alert('Please enter year in format: YYYY (e.g., 2026)');
-            return;
-        }
+    // Both members and events: expect format like "2026-27"
+    if (!/^\d{4}-\d{2}$/.test(newValue)) {
+        alert('Please enter session year in format: YYYY-YY (e.g., 2026-27)');
+        return;
     }
     
-    const selectId = type === 'member' ? 'memberSessionYear' : 'eventYear';
+    const selectId = type === 'member' ? 'memberSessionYear' : 'eventSessionYear';
     const select = document.getElementById(selectId);
     
     // Check if option already exists
@@ -660,15 +774,13 @@ function loadSessionYears() {
         });
     }
     
-    // Load event years
+    // Load event session years
     const savedEventYears = localStorage.getItem('acm_event_years');
     if (savedEventYears) {
         const eventYears = JSON.parse(savedEventYears);
-        const eventSelect = document.getElementById('eventYear');
-        
+        const eventSelect = document.getElementById('eventSessionYear');
         // Clear existing options except the first one
-        eventSelect.innerHTML = '<option value="">Select Year</option>';
-        
+        eventSelect.innerHTML = '<option value="">Select Session</option>';
         // Add saved years
         eventYears.forEach(year => {
             const option = document.createElement('option');

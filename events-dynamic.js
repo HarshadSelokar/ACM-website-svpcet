@@ -203,40 +203,39 @@ async function loadDynamicEvents() {
             return;
         }
         
-        // Group events by year
-        const eventsByYear = {};
+        // Group events by session year
+        const eventsBySession = {};
         events.forEach(event => {
-            if (!eventsByYear[event.year]) {
-                eventsByYear[event.year] = [];
+            const session = event.session_year || event.year || 'Unknown';
+            if (!eventsBySession[session]) {
+                eventsBySession[session] = [];
             }
-            eventsByYear[event.year].push(event);
+            eventsBySession[session].push(event);
         });
-        
-        // Add dynamic events to the page
-        Object.keys(eventsByYear).forEach(year => {
-            let yearSection = document.querySelector(`[data-year="${year}"]`);
-            
-            // Create year section if it doesn't exist
-            if (!yearSection) {
-                yearSection = document.createElement('div');
-                yearSection.className = 'events-year-section';
-                yearSection.setAttribute('data-year', year);
-                yearSection.innerHTML = `<h2>SESSION ${year}</h2><div class="events-grid" id="events-grid-${year}"></div>`;
-                
-                // Insert after the last existing year section or at the beginning
-                const existingSections = document.querySelectorAll('.events-year-section');
-                if (existingSections.length > 0) {
-                    existingSections[existingSections.length - 1].after(yearSection);
+
+        // Sort session years descending (newest first)
+        const sortedSessions = Object.keys(eventsBySession).sort((a, b) => b.localeCompare(a));
+
+        // Add dynamic events to the page, inserting each session section at the top
+        const eventsSection = document.querySelector('.events-section .container');
+        sortedSessions.forEach(session => {
+            let sessionSection = document.querySelector(`[data-year="${session}"]`);
+            // Create session section if it doesn't exist
+            if (!sessionSection) {
+                sessionSection = document.createElement('div');
+                sessionSection.className = 'events-year-section';
+                sessionSection.setAttribute('data-year', session);
+                sessionSection.innerHTML = `<h2>SESSION ${session}</h2><div class="events-grid" id="events-grid-${session}"></div>`;
+                // Insert at the top of the container
+                if (eventsSection.firstChild) {
+                    eventsSection.insertBefore(sessionSection, eventsSection.firstChild);
                 } else {
-                    const eventsSection = document.querySelector('.events-section .container');
-                    eventsSection.appendChild(yearSection);
+                    eventsSection.appendChild(sessionSection);
                 }
             }
-            
-            const eventsGrid = yearSection.querySelector('.events-grid');
-            
+            const eventsGrid = sessionSection.querySelector('.events-grid');
             // Add dynamic events to the grid
-            eventsByYear[year].forEach(event => {
+            eventsBySession[session].forEach(event => {
                 const eventCard = createEventCard(event);
                 eventsGrid.insertAdjacentHTML('beforeend', eventCard);
             });

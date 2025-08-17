@@ -72,7 +72,6 @@ async function initializeDatabase() {
         image_path VARCHAR(500),
         linkedin VARCHAR(255),
         github VARCHAR(255),
-        twitter VARCHAR(255),
         instagram VARCHAR(255),
         session_year VARCHAR(20) NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -170,12 +169,12 @@ app.get('/api/members/:sessionYear', async (req, res) => {
 
 app.post('/api/members', upload.single('image'), async (req, res) => {
   try {
-    const { name, role, year, description, expertise, linkedin, github, twitter, instagram, session_year } = req.body;
+  const { name, role, year, description, expertise, linkedin, github, instagram, session_year } = req.body;
     const image_path = req.file ? `/uploads/${req.file.filename}` : null;
     
     const [result] = await pool.execute(
-      'INSERT INTO members (name, role, year, description, expertise, image_path, linkedin, github, twitter, instagram, session_year) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [name, role, year, description, expertise, image_path, linkedin, github, twitter, instagram, session_year]
+  'INSERT INTO members (name, role, year, description, expertise, image_path, linkedin, github, instagram, session_year) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+  [name, role, year, description, expertise, image_path, linkedin, github, instagram, session_year]
     );
     
     res.json({ id: result.insertId, message: 'Member added successfully' });
@@ -186,12 +185,12 @@ app.post('/api/members', upload.single('image'), async (req, res) => {
 
 app.put('/api/members/:id', upload.single('image'), async (req, res) => {
   try {
-    const { name, role, year, description, expertise, linkedin, github, twitter, instagram, session_year } = req.body;
+  const { name, role, year, description, expertise, linkedin, github, instagram, session_year } = req.body;
     const image_path = req.file ? `/uploads/${req.file.filename}` : req.body.image_path;
     
     await pool.execute(
-      'UPDATE members SET name=?, role=?, year=?, description=?, expertise=?, image_path=?, linkedin=?, github=?, twitter=?, instagram=?, session_year=? WHERE id=?',
-      [name, role, year, description, expertise, image_path, linkedin, github, twitter, instagram, session_year, req.params.id]
+  'UPDATE members SET name=?, role=?, year=?, description=?, expertise=?, image_path=?, linkedin=?, github=?, instagram=?, session_year=? WHERE id=?',
+  [name, role, year, description, expertise, image_path, linkedin, github, instagram, session_year, req.params.id]
     );
     
     res.json({ message: 'Member updated successfully' });
@@ -210,7 +209,29 @@ app.delete('/api/members/:id', async (req, res) => {
 });
 
 // Events API
+app.put('/api/events/:id/status', async (req, res) => {
+  try {
+    const { status } = req.body;
+    await pool.execute('UPDATE events SET status = ? WHERE id = ?', [status, req.params.id]);
+    res.json({ message: 'Event status updated successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update event status' });
+  }
+});
+
 app.get('/api/events', async (req, res) => {
+// Get single event by ID
+app.get('/api/events/:id', async (req, res) => {
+  try {
+    const [rows] = await pool.execute('SELECT * FROM events WHERE id = ?', [req.params.id]);
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Event not found' });
+    }
+    res.json(rows[0]);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch event' });
+  }
+});
   try {
     const [rows] = await pool.execute('SELECT * FROM events ORDER BY event_date DESC');
     res.json(rows);
