@@ -254,18 +254,4 @@ The contact form on the website automatically submits to the backend and appears
 - Monitor server logs for backend issues
 - Use browser dev tools to inspect API requests
 
-## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License.
-
-## Support
-
-For support or questions, please contact the ACM SVPCET team or create an issue in the repository.
