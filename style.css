@@ -2362,3 +2362,104 @@ html {
   background: #3b82f6;
   color: white;
 }
+
+/* Responsive styles for laptop (1024px) */
+    @media (max-width: 1024px) {
+        .container {
+            max-width: 900px;
+            padding: 0 24px;
+        }
+        .hero-content {
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .hero-text {
+            width: 100%;
+        }
+        .hero-visual {
+            width: 100%;
+            margin: 0 auto;
+        }
+        .card-ctn {
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .about-content {
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .about-visual, .about-text {
+            width: 100%;
+        }
+        .events-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-content {
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .College_NamePlate>.h1{
+
+            font-weight: 100;
+        font-size: 19px;
+        margin-top: 3px;
+        }
+    }
+    /* Responsive styles for tablet (768px) */
+    @media (max-width: 768px) {
+        .container {
+            max-width: 100%;
+            padding: 0 12px;
+        }
+        .navbar .nav-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .nav-menu {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .hero-content {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .hero-title {
+            font-size: 2rem !important;
+        }
+        .hero-description {
+            font-size: 1rem;
+        }
+        .hero-buttons {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .slider-wrapper {
+            width: 100%;
+        }
+        .card-ctn {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .about-content {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .about-visual, .about-text {
+            width: 100%;
+        }
+        .about-image img {
+            border-radius: 16px;
+        }
+        .events-grid {
+            grid-template-columns: 1fr;
+        }
+        .footer-content {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .footer-section {
+            width: 100%;
+        }
+    }
