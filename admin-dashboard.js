@@ -1,3 +1,43 @@
+// Event Page Creation Modal logic
+function showCreateEventPageModal() {
+    const modal = document.getElementById('createEventPageModal');
+    modal.style.display = 'flex';
+    const eventPageForm = document.getElementById('createEventPageForm');
+    if (!eventPageForm) {
+        console.error('Event page form not found in DOM. Make sure the modal and form exist in your HTML.');
+        alert('Event page form not found. Please reload the page or contact the developer.');
+        return;
+    }
+    if (!eventPageForm.hasAttribute('data-listener')) {
+        eventPageForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const eventData = {};
+            formData.forEach((value, key) => {
+                eventData[key] = value;
+            });
+            // You may want to parse JSON fields if needed
+            try {
+                const response = await fetch('/api/events/generate-page', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(eventData)
+                });
+                const result = await response.json();
+                if (result.success) {
+                    alert('Event page created: ' + result.file);
+                    closeModal('createEventPageModal');
+                } else {
+                    alert('Failed to create event page');
+                }
+            } catch (error) {
+                alert('Error creating event page');
+            }
+        });
+        eventPageForm.setAttribute('data-listener', 'true');
+    }
+}
 // Firebase config (replace with your own from Firebase Console)
 // Firebase config (replace with your own from Firebase Console)
 const firebaseConfig = {
@@ -69,16 +109,19 @@ async function editMember(id) {
     try {
         const response = await fetch(`${API_BASE}/members/${id}`);
         if (!response.ok) throw new Error('Failed to fetch member');
-        const member = await response.json();
+        let member = await response.json();
+        console.log('Loaded member for edit:', member);
+        // If response is an array, use the first element
+        if (Array.isArray(member)) {
+            if (member.length === 0) {
+                alert('No member found for edit.');
+                window.editingMemberId = null;
+                return;
+            }
+            member = member[0];
+        }
 
         // Populate modal fields
-            // Sort events by session year (descending, newer first)
-            events.sort((a, b) => {
-                // Expect session_year format: '2026-27', fallback to year
-                const getSessionYear = e => e.session_year || e.year || '';
-                // Compare by first 4 digits (YYYY)
-                return getSessionYear(b).localeCompare(getSessionYear(a));
-            });
         document.getElementById('addMemberModal').style.display = 'flex';
         document.querySelector('#addMemberModal .form-title').textContent = 'Edit Member';
         document.querySelector('#addMemberForm [name="name"]').value = member.name || '';
@@ -92,10 +135,12 @@ async function editMember(id) {
         document.querySelector('#addMemberForm [name="instagram"]').value = member.instagram || '';
         // Image field left blank for security
 
-        editingMemberId = id;
+        window.editingMemberId = id;
+        console.log('Set window.editingMemberId:', window.editingMemberId);
     } catch (error) {
+        console.error('Error loading member for edit:', error);
         alert('Error loading member for edit');
-        editingMemberId = null;
+        window.editingMemberId = null;
     }
 }
 function showAddMemberForm() {
@@ -139,43 +184,43 @@ async function loadMembers() {
     try {
         const response = await fetch(`${API_BASE}/members`);
         const members = await response.json();
-        
         const tbody = document.getElementById('membersTableBody');
         tbody.innerHTML = '';
-        
-        // Edit Event logic
-       
-window.editEvent = editEvent;
-        async function editEvent(id) {
-            
-            // Fetch event data by ID
-            try {
-                const response = await fetch(`${API_BASE}/events/${id}`);
-                if (!response.ok) throw new Error('Failed to fetch event');
-                const event = await response.json();
+        // ...existing code for rendering members...
 
-                // Populate modal fields
-                document.getElementById('addEventModal').style.display = 'flex';
-                document.querySelector('#addEventModal .form-title').textContent = 'Edit Event';
-                document.querySelector('#addEventForm [name="title"]').value = event.title || '';
-                document.querySelector('#addEventForm [name="category"]').value = event.category || '';
-                document.querySelector('#addEventForm [name="status"]').value = event.status || '';
-                document.querySelector('#addEventForm [name="event_date"]').value = event.event_date ? event.event_date.split('T')[0] : '';
-                document.querySelector('#addEventForm [name="event_time"]').value = event.event_time || '';
-                document.querySelector('#addEventForm [name="location"]').value = event.location || '';
-                document.querySelector('#addEventForm [name="duration"]').value = event.duration || '';
-                document.querySelector('#addEventForm [name="description"]').value = event.description || '';
-                document.querySelector('#addEventForm [name="year"]').value = event.year || '';
-                    document.querySelector('#addEventForm [name="session_year"]').value = event.session_year || event.year || '';
-                document.querySelector('#addEventForm [name="event_page_url"]').value = event.event_page_url || '';
-                // Image field left blank for security
+// Make editEvent globally available for HTML onclick
+window.editEvent = async function editEvent(id) {
+    // Fetch event data by ID
+    try {
+        const response = await fetch(`${API_BASE}/events/${id}`);
+        if (!response.ok) throw new Error('Failed to fetch event');
+        const event = await response.json();
 
-                editingEventId = id;
-            } catch (error) {
-                alert('Error loading event for edit');
-                editingEventId = null;
-            }
+        // Populate modal fields
+        const modal = document.getElementById('addEventModal');
+        if (modal) {
+            modal.style.display = 'flex';
         }
+        document.querySelector('#addEventModal .form-title').textContent = 'Edit Event';
+        document.querySelector('#addEventForm [name="title"]').value = event.title || '';
+        document.querySelector('#addEventForm [name="category"]').value = event.category || '';
+        document.querySelector('#addEventForm [name="status"]').value = event.status || '';
+        document.querySelector('#addEventForm [name="event_date"]').value = event.event_date ? event.event_date.split('T')[0] : '';
+        document.querySelector('#addEventForm [name="event_time"]').value = event.event_time || '';
+        document.querySelector('#addEventForm [name="location"]').value = event.location || '';
+        document.querySelector('#addEventForm [name="duration"]').value = event.duration || '';
+        document.querySelector('#addEventForm [name="description"]').value = event.description || '';
+        document.querySelector('#addEventForm [name="year"]').value = event.year || '';
+        document.querySelector('#addEventForm [name="session_year"]').value = event.session_year || event.year || '';
+        document.querySelector('#addEventForm [name="event_page_url"]').value = event.event_page_url || '';
+        // Image field left blank for security
+
+        window.editingEventId = id;
+    } catch (error) {
+        alert('Error loading event for edit');
+        window.editingEventId = null;
+    }
+}
         members.forEach(member => {
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -456,58 +501,103 @@ async function exportCommunitySubmissions() {
 }
 
 // Form submissions
-document.getElementById('addMemberForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(e.target);
-    
-    try {
-        const response = await fetch(`${API_BASE}/members`, {
-            method: 'POST',
-            body: formData
-        });
-        
-        if (response.ok) {
-            alert('Member added successfully!');
-            closeModal('addMemberModal');
-            loadMembers();
-            loadDashboardStats();
-        } else {
-            alert('Error adding member');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error adding member');
-    }
-});
 
-document.getElementById('addEventForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(e.target);
-        // If session_year exists, use it for year
-        if (formData.get('session_year')) {
-            formData.set('year', formData.get('session_year'));
-        }
-    
-    try {
-        const response = await fetch(`${API_BASE}/events`, {
-            method: 'POST',
-            body: formData
+// Move form event listeners inside DOMContentLoaded for safety
+document.addEventListener('DOMContentLoaded', () => {
+    // ...existing code...
+
+    // Add Member Form submit (supports add and edit)
+    const addMemberForm = document.getElementById('addMemberForm');
+    if (addMemberForm) {
+        addMemberForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            let url = `${API_BASE}/members`;
+            let method = 'POST';
+            let successMsg = 'Member added successfully!';
+            if (window.editingMemberId) {
+                url = `${API_BASE}/members/${window.editingMemberId}`;
+                method = 'PUT';
+                successMsg = 'Member updated successfully!';
+            }
+            try {
+                const response = await fetch(url, {
+                    method,
+                    body: formData
+                });
+                if (response.ok) {
+                    alert(successMsg);
+                    closeModal('addMemberModal');
+                    loadMembers();
+                    loadDashboardStats();
+                } else {
+                    alert(method === 'PUT' ? 'Error updating member' : 'Error adding member');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert(method === 'PUT' ? 'Error updating member' : 'Error adding member');
+            }
+            window.editingMemberId = null;
         });
-        
-        if (response.ok) {
-            alert('Event added successfully!');
-            closeModal('addEventModal');
-            loadEvents();
-            loadDashboardStats();
-        } else {
-            alert('Error adding event');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error adding event');
     }
+
+    // Add Event Form submit
+    const addEventForm = document.getElementById('addEventForm');
+    if (addEventForm) {
+        addEventForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            // If session_year exists, use it for year
+            if (formData.get('session_year')) {
+                formData.set('year', formData.get('session_year'));
+            }
+            // Add short and long description
+            formData.set('short_description', formData.get('short_description'));
+            formData.set('long_description', formData.get('long_description'));
+            // Add event stats
+            formData.set('event_stats', formData.get('event_stats'));
+            // Add highlights, agenda, technologies, coordinators as lines
+            ['event_highlights','event_agenda','event_technologies','event_coordinators'].forEach(field => {
+                if (formData.get(field)) {
+                    formData.set(field, formData.get(field).split('\n').map(line => `<li>${line.trim()}</li>`).join(''));
+                }
+            });
+            // Gallery images (only for completed)
+            const status = formData.get('status');
+            if (status === 'completed') {
+                const galleryInput = document.querySelector('input[name="gallery_images"]');
+                if (galleryInput && galleryInput.files.length > 0) {
+                    // Only take up to 4 images
+                    for (let i = 0; i < Math.min(4, galleryInput.files.length); i++) {
+                        formData.append('gallery_images', galleryInput.files[i]);
+                    }
+                }
+            }
+            try {
+                const response = await fetch(`${API_BASE}/events`, {
+                    method: 'POST',
+                    body: formData
+                });
+                if (response.ok) {
+                    const result = await response.json();
+                    alert('Event added successfully!');
+                    closeModal('addEventModal');
+                    loadEvents();
+                    loadDashboardStats();
+                    if (result.event_page_url) {
+                        alert('Event page created: ' + result.event_page_url);
+                    }
+                } else {
+                    alert('Error adding event');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error adding event');
+            }
+        });
+    }
+
+    // ...existing code...
 });
 
 // Delete functions
@@ -662,6 +752,11 @@ document.addEventListener('DOMContentLoaded', () => {
             loadDashboardStats();
             loadSessionYears();
             setupNavigation();
+            // Safely attach event page modal open button if present
+            const createEventPageBtn = document.getElementById('openCreateEventPageBtn');
+            if (createEventPageBtn) {
+                createEventPageBtn.addEventListener('click', showCreateEventPageModal);
+            }
         } else {
             // User is signed out
             document.querySelector('.dashboard-container').style.display = 'none';
@@ -758,31 +853,23 @@ function saveSessionYears() {
 function loadSessionYears() {
     // Load member session years
     const savedMemberYears = localStorage.getItem('acm_member_session_years');
-    if (savedMemberYears) {
-        const memberYears = JSON.parse(savedMemberYears);
-        const memberSelect = document.getElementById('memberSessionYear');
-        
-        // Clear existing options except the first one
+    const memberSelect = document.getElementById('memberSessionYear');
+    if (memberSelect && savedMemberYears) {
         memberSelect.innerHTML = '<option value="">Select Session</option>';
-        
-        // Add saved years
-        memberYears.forEach(year => {
+        JSON.parse(savedMemberYears).forEach(year => {
             const option = document.createElement('option');
             option.value = year;
             option.textContent = year;
             memberSelect.appendChild(option);
         });
     }
-    
+
     // Load event session years
     const savedEventYears = localStorage.getItem('acm_event_years');
-    if (savedEventYears) {
-        const eventYears = JSON.parse(savedEventYears);
-        const eventSelect = document.getElementById('eventSessionYear');
-        // Clear existing options except the first one
+    const eventSelect = document.getElementById('eventSessionYear');
+    if (eventSelect && savedEventYears) {
         eventSelect.innerHTML = '<option value="">Select Session</option>';
-        // Add saved years
-        eventYears.forEach(year => {
+        JSON.parse(savedEventYears).forEach(year => {
             const option = document.createElement('option');
             option.value = year;
             option.textContent = year;
@@ -799,3 +886,14 @@ document.querySelectorAll('.form-overlay').forEach(overlay => {
         }
     });
 });
+
+// Toggle gallery field based on status
+window.toggleGalleryField = function() {
+    const status = document.getElementById('eventStatus').value;
+    const galleryField = document.getElementById('galleryField');
+    if (status === 'completed') {
+        galleryField.style.display = 'block';
+    } else {
+        galleryField.style.display = 'none';
+    }
+}

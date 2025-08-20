@@ -25,7 +25,7 @@ function createHomepageEventCard(event) {
                     ${formatDate(event.event_date)}
                 </div>
                 <h3>${event.title}</h3>
-                <p>${event.description || 'No description available.'}</p>
+                <p>${event.event_short_description || event.short_description }</p>
                 ${event.event_page_url ? `
                 <button onclick="window.location.href='${event.event_page_url}'" class="btn btn-outline">
                     Learn More

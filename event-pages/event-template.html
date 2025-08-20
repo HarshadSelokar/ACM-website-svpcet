@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sfsffge - SVPCET ACM Student Chapter</title>
-    <meta name="description" content="It is a AI Agent workflow where you can create the agent with just drag and drop">
+    <title>{{event_name}} - SVPCET ACM Student Chapter</title>
+    <meta name="description" content="{{event_short_description}}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../header.css">
@@ -67,21 +67,21 @@
     <section class="event-hero">
         <div class="container">
             <div class="event-hero-content">
-                <h1>sfsffge</h1>
-                <div class="event-status-badge upcoming">
-                    <i class="fas fa-clock"></i>
-                    Upcoming
+                <h1>{{event_name}}</h1>
+                <div class="event-status-badge {{event_status}}">
+                    <i class="fas fa-{{event_status_icon}}"></i>
+                    {{event_status_text}}
                 </div>
-                <p class="event-subtitle">It is a AI Agent workflow where you can create the agent with just drag and drop</p>
+                <p class="event-subtitle">{{event_short_description}}</p>
                 <div class="event-meta-info">
-                    <div class="meta-item"><i class="fas fa-calendar-alt"></i><div><strong>Date</strong><span>2025-09-18</span></div></div>
-                    <div class="meta-item"><i class="fas fa-clock"></i><div><strong>Time</strong><span>2:00 - 4:00</span></div></div>
-                    <div class="meta-item"><i class="fas fa-map-marker-alt"></i><div><strong>Venue</strong><span>BF-04</span></div></div>
-                    <div class="meta-item"><i class="fas fa-users"></i><div><strong>Participants</strong><span></span></div></div>
+                    <div class="meta-item"><i class="fas fa-calendar-alt"></i><div><strong>Date</strong><span>{{event_date}}</span></div></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><div><strong>Time</strong><span>{{event_time}}</span></div></div>
+                    <div class="meta-item"><i class="fas fa-map-marker-alt"></i><div><strong>Venue</strong><span>{{event_venue}}</span></div></div>
+                    <div class="meta-item"><i class="fas fa-users"></i><div><strong>Participants</strong><span>{{event_participants}}</span></div></div>
                 </div>
             </div>
             <div class="event-hero-image">
-                <img src="/uploads/image-1755721777435-69154059.jpeg" alt="sfsffge">
+                <img src="{{event_main_image}}" alt="{{event_name}}">
             </div>
         </div>
     </section>
@@ -92,41 +92,41 @@
             <div class="event-content">
                 <div class="event-main">
                     <div class="section">
-                        <h2>About sfsffge</h2>
-                        <p>MySQL client (WorkbenchMySQL client (WorkbenchMySQL client (WorkbenchMySQL client (WorkbenchMySQL client (WorkbenchMySQL client (WorkbenchMySQL client (WorkbenchMySQL client (Workbench</p>
+                        <h2>About {{event_name}}</h2>
+                        <p>{{event_long_description}}</p>
                     </div>
                     <div class="section">
                         <h2>Event Objective</h2>
-                        <p>asfsfe </p>
+                        <p>{{event_objective}}</p>
                     </div>
                     <div class="section">
                         <h2>Event Highlights</h2>
                         <ul class="highlights-grid">
-                            <li>sdfds etbtaeb e t t</li>
+                            {{event_highlights}}
                         </ul>
                     </div>
                     <div class="section">
                         <h2>Schedule</h2>
                         <ul class="problem-categories">
-                            <li>ddfvsdsddwsddsd</li>
+                            {{event_agenda}}
                         </ul>
                     </div>
                     <div class="section">
                         <h2>Technologies Covered</h2>
                         <ul class="tech-tags">
-                            <li>dsvsdvs w wqdwqqwfq</li>
+                            {{event_technologies}}
                         </ul>
                     </div>
                     <div class="section">
                         <h2>Coordinators</h2>
                         <ul class="winner-podium">
-                            <li>ewefffewf  wqq</li>
+                            {{event_coordinators}}
                         </ul>
                     </div>
                     <div class="section" id="gallerySection">
                         <h2>Gallery</h2>
                         <div class="gallery-grid">
-                            
+                            {{event_gallery}}
                         </div>
                     </div>
                 </div>
@@ -135,19 +135,19 @@
                         <div class="sidebar-card">
                             <h3>Event Stats</h3>
                             <div class="stats-list">
-                                 qwwefwe qw
+                                {{event_stats}}
                             </div>
                         </div>
                         <div class="sidebar-card">
                             <h3>Technologies Covered</h3>
                             <ul class="tech-tags">
-                                <li>dsvsdvs w wqdwqqwfq</li>
+                                {{event_technologies}}
                             </ul>
                         </div>
                         <div class="sidebar-card">
                             <h3>Coordinators</h3>
                             <ul class="related-events">
-                                <li>ewefffewf  wqq</li>
+                                {{event_coordinators}}
                             </ul>
                         </div>
                     </div>

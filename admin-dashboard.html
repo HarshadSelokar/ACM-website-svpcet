@@ -400,65 +400,53 @@
             </form>
         </div>
     </div>
-
+    
     <!-- Add Event Modal -->
-    <div class="form-overlay" id="addEventModal">
+    <div class="form-overlay" id="addEventModal" style="display:none;">
         <div class="form-modal">
             <div class="form-header">
                 <h3 class="form-title">Add New Event</h3>
                 <button class="close-btn" onclick="closeModal('addEventModal')">&times;</button>
             </div>
             <form id="addEventForm">
-                <div class="form-group">
-                    <label class="form-label">Event Title *</label>
-                    <input type="text" class="form-input" name="title" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Title *</label>
+                        <input type="text" class="form-input" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category *</label>
+                        <input type="text" class="form-input" name="category" required>
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Category *</label>
-                        <select class="form-input" name="category" required>
-                            <option value="">Select Category</option>
-                            <option value="workshop">Workshop</option>
-                            <option value="competition">Competition</option>
-                            <option value="seminar">Seminar</option>
-                            <option value="hackathon">Hackathon</option>
-                            <option value="webinar">Webinar</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label class="form-label">Status *</label>
-                        <select class="form-input" name="status" required>
-                            <option value="">Select Status</option>
+                        <select class="form-input" name="status" id="eventStatus" required onchange="toggleGalleryField()">
                             <option value="upcoming">Upcoming</option>
                             <option value="completed">Completed</option>
                         </select>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Event Date *</label>
+                        <label class="form-label">Date *</label>
                         <input type="date" class="form-input" name="event_date" required>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Event Time</label>
-                        <input type="text" class="form-input" name="event_time" placeholder="e.g., 2:00 PM - 4:00 PM">
-                    </div>
                 </div>
                 <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Time</label>
+                        <input type="text" class="form-input" name="event_time">
+                    </div>
                     <div class="form-group">
                         <label class="form-label">Location</label>
-                        <input type="text" class="form-input" name="location" placeholder="e.g., BF-05">
+                        <input type="text" class="form-input" name="location">
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Duration</label>
-                        <input type="text" class="form-input" name="duration" placeholder="e.g., 2 Hours">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Description</label>
-                    <textarea class="form-input form-textarea" name="description" rows="4"></textarea>
                 </div>
                 <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Duration (hours)</label>
+                        <input type="text" class="form-input" name="duration">
+                    </div>
                     <div class="form-group">
                         <label class="form-label">Session Year *</label>
                         <div class="session-year-container">
@@ -483,19 +471,141 @@
                                 onclick="hideCustomSessionInput('event')" style="margin-left: 5px;">Cancel</button>
                         </div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Short Description (for cards) *</label>
+                    <input type="text" class="form-input" name="short_description" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Long Description (About Section) *</label>
+                    <textarea class="form-input" name="long_description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Event Objective</label>
+                    <textarea class="form-input" name="event_objective" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Event Highlights</label>
+                    <textarea class="form-input" name="event_highlights" rows="3" placeholder="One per line"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Schedule</label>
+                    <textarea class="form-input" name="event_agenda" rows="3" placeholder="One per line"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Technologies Covered</label>
+                    <textarea class="form-input" name="event_technologies" rows="2" placeholder="One per line"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Coordinators</label>
+                    <textarea class="form-input" name="event_coordinators" rows="2" placeholder="One per line"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Event Stats</label>
+                    <input type="text" class="form-input" name="event_stats" placeholder="e.g. 120 Participants, 4 hours">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Main Image</label>
+                    <input type="file" class="form-input" name="image" accept="image/*">
+                </div>
+                <div class="form-group" id="galleryField" style="display:none;">
+                    <label class="form-label">Gallery Images (max 4, only for completed events)</label>
+                    <input type="file" class="form-input" name="gallery_images" accept="image/*" multiple>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addEventModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Page Creation Modal -->
+    <div class="form-overlay" id="createEventPageModal" style="display:none;">
+        <div class="form-modal">
+            <div class="form-header">
+                <h3 class="form-title">Create Event Page</h3>
+                <button class="close-btn" onclick="closeModal('createEventPageModal')">&times;</button>
+            </div>
+            <form id="createEventPageForm">
+                <div class="form-group">
+                    <label class="form-label">Event Name *</label>
+                    <input type="text" class="form-input" name="event_name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Status *</label>
+                    <select class="form-input" name="event_status" required>
+                        <option value="upcoming">Upcoming</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Short Description *</label>
+                    <input type="text" class="form-input" name="event_short_description" required>
+                </div>
+                <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Event Page URL (optional)</label>
-                        <input type="url" class="form-input" name="event_page_url" placeholder="e.g., ./event-pages/event21.html">
+                        <label class="form-label">Date *</label>
+                        <input type="text" class="form-input" name="event_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Time</label>
+                        <input type="text" class="form-input" name="event_time">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Venue</label>
+                        <input type="text" class="form-input" name="event_venue">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Participants</label>
+                        <input type="text" class="form-input" name="event_participants">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Event Image</label>
-                    <input type="file" class="form-input" name="image" accept="image/*">
+                    <label class="form-label">Main Image URL</label>
+                    <input type="text" class="form-input" name="event_main_image">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">About Event</label>
+                    <textarea class="form-input" name="event_description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Event Objective</label>
+                    <textarea class="form-input" name="event_objective" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Event Highlights (HTML or JSON)</label>
+                    <textarea class="form-input" name="event_highlights" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Event Agenda (HTML or JSON)</label>
+                    <textarea class="form-input" name="event_agenda" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Coordinators (HTML or JSON)</label>
+                    <textarea class="form-input" name="event_coordinators" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Gallery (HTML or JSON)</label>
+                    <textarea class="form-input" name="event_gallery" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Event Stats (HTML or JSON)</label>
+                    <textarea class="form-input" name="event_stats" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Technologies Covered (HTML or JSON)</label>
+                    <textarea class="form-input" name="event_technologies" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Related Events (HTML or JSON)</label>
+                    <textarea class="form-input" name="related_events" rows="2"></textarea>
                 </div>
                 <div style="display: flex; gap: 1rem; justify-content: flex-end;">
-                    <button type="button" class="btn btn-secondary"
-                        onclick="closeModal('addEventModal')">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Add Event</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('createEventPageModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Event Page</button>
                 </div>
             </form>
         </div>

@@ -2399,6 +2399,16 @@ html {
             gap: 2rem;
         }
 
+        .hero-buttons{
+
+          justify-content: center;
+        }
+
+        .slider-wrapper{
+
+          margin-bottom: 2rem;
+        }
+
         .College_NamePlate>.h1{
 
             font-weight: 100;
@@ -2462,4 +2472,21 @@ html {
         .footer-section {
             width: 100%;
         }
+
+        .College_NamePlate > p{
+
+          font-size: 10px;
+        }
+    }
+
+
+
+    @media (max-width: 1440px) and (min-width: 1025px) {
+      
+
+
+      .event-card{
+
+        min-width: 35rem;
+      }
     }

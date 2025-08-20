@@ -24,6 +24,34 @@ const dbConfig = {
   database: process.env.DB_NAME || 'acm_dashboard'
 };
 
+// Utility to generate event page from template
+
+
+async function generateEventPage(eventData) {
+  const templatePath = path.join(__dirname, 'event-pages', 'event-template.html');
+  let template = fs.readFileSync(templatePath, 'utf8');
+  Object.keys(eventData).forEach(key => {
+    const regex = new RegExp(`{{${key}}}`, 'g');
+    template = template.replace(regex, eventData[key]);
+  });
+  const fileName = `event${eventData.event_id}.html`;
+  const outputPath = path.join(__dirname, 'event-pages', fileName);
+  fs.writeFileSync(outputPath, template, 'utf8');
+  return fileName;
+}
+
+// API endpoint to generate event page
+app.post('/api/events/generate-page', async (req, res) => {
+  try {
+    const eventData = req.body;
+    const fileName = await generateEventPage(eventData);
+    res.json({ success: true, file: fileName });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to generate event page' });
+  }
+});
+
+
     // Create database connection pool
     const pool = mysql.createPool({
         ...dbConfig,
@@ -158,12 +186,17 @@ app.get('/api/members', async (req, res) => {
   }
 });
 
-app.get('/api/members/:sessionYear', async (req, res) => {
+
+// Get a single member by ID
+app.get('/api/members/:id', async (req, res) => {
   try {
-    const [rows] = await pool.execute('SELECT * FROM members WHERE session_year = ? ORDER BY created_at DESC', [req.params.sessionYear]);
-    res.json(rows);
+    const [rows] = await pool.execute('SELECT * FROM members WHERE id = ?', [req.params.id]);
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Member not found' });
+    }
+    res.json(rows[0]);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch members' });
+    res.status(500).json({ error: 'Failed to fetch member' });
   }
 });
 
@@ -185,16 +218,29 @@ app.post('/api/members', upload.single('image'), async (req, res) => {
 
 app.put('/api/members/:id', upload.single('image'), async (req, res) => {
   try {
-  const { name, role, year, description, expertise, linkedin, github, instagram, session_year } = req.body;
-    const image_path = req.file ? `/uploads/${req.file.filename}` : req.body.image_path;
-    
+    // Get all fields, fallback to empty string if missing
+    const { name = '', role = '', year = '', description = '', expertise = '', linkedin = '', github = '', instagram = '', session_year = '' } = req.body;
+
+    // Get existing image_path if not provided or uploaded
+    let image_path;
+    if (req.file) {
+      image_path = `/uploads/${req.file.filename}`;
+    } else if (req.body.image_path) {
+      image_path = req.body.image_path;
+    } else {
+      // Fetch existing image_path from DB
+      const [rows] = await pool.execute('SELECT image_path FROM members WHERE id = ?', [req.params.id]);
+      image_path = rows.length > 0 ? rows[0].image_path : '';
+    }
+
     await pool.execute(
-  'UPDATE members SET name=?, role=?, year=?, description=?, expertise=?, image_path=?, linkedin=?, github=?, instagram=?, session_year=? WHERE id=?',
-  [name, role, year, description, expertise, image_path, linkedin, github, instagram, session_year, req.params.id]
+      'UPDATE members SET name=?, role=?, year=?, description=?, expertise=?, image_path=?, linkedin=?, github=?, instagram=?, session_year=? WHERE id=?',
+      [name, role, year, description, expertise, image_path, linkedin, github, instagram, session_year, req.params.id]
     );
-    
+
     res.json({ message: 'Member updated successfully' });
   } catch (error) {
+    console.error('Error updating member:', error);
     res.status(500).json({ error: 'Failed to update member' });
   }
 });
@@ -233,8 +279,14 @@ app.get('/api/events/:id', async (req, res) => {
   }
 });
   try {
-    const [rows] = await pool.execute('SELECT * FROM events ORDER BY event_date DESC');
-    res.json(rows);
+    const [rows] = await pool.execute('SELECT *, description AS long_description, short_description FROM events ORDER BY event_date DESC');
+    // Map each event to include short_description and long_description
+    const events = rows.map(event => ({
+      ...event,
+      short_description: event.short_description || '',
+      long_description: event.long_description || event.description || ''
+    }));
+    res.json(events);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch events' });
   }
@@ -260,16 +312,95 @@ app.get('/api/events/completed', async (req, res) => {
 
 app.post('/api/events', upload.single('image'), async (req, res) => {
   try {
-    const { title, description, category, status, event_date, event_time, location, duration, event_page_url, year } = req.body;
+    // Handle file uploads for main image and gallery images
     const image_path = req.file ? `/uploads/${req.file.filename}` : null;
-    
+    let galleryImages = [];
+    if (req.files && req.files.gallery_images) {
+      // Multer array upload for gallery images
+      galleryImages = req.files.gallery_images.map(f => `/uploads/${f.filename}`);
+    }
+
+    // Get all fields
+    const {
+      title,
+      category,
+      status,
+      event_date,
+      event_time,
+      location,
+      duration,
+      session_year,
+      short_description,
+      long_description,
+      event_objective,
+      event_highlights,
+      event_agenda,
+      event_technologies,
+      event_coordinators,
+      event_stats
+    } = req.body;
+    const year = session_year;
+
+    // Insert event first
     const [result] = await pool.execute(
-      'INSERT INTO events (title, description, category, status, event_date, event_time, location, duration, image_path, event_page_url, year) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [title, description, category, status, event_date, event_time, location, duration, image_path, event_page_url, year]
+      'INSERT INTO events (title, description, short_description, category, status, event_date, event_time, location, duration, image_path, year) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [title, long_description, short_description, category, status, event_date, event_time, location, duration, image_path, year]
     );
-    
-    res.json({ id: result.insertId, message: 'Event added successfully' });
+    const event_id = result.insertId;
+
+    // Prepare event data for template
+    let eventData = {
+      event_id,
+      event_name: title,
+      event_short_description: short_description || '',
+      event_long_description: long_description || '',
+      event_status: status,
+      event_status_icon: status === 'upcoming' ? 'clock' : 'check-circle',
+      event_status_text: status === 'upcoming' ? 'Upcoming' : 'Completed',
+      event_date,
+      event_time: event_time || '',
+      event_venue: location || '',
+      event_participants: '',
+      event_main_image: image_path || '',
+      event_objective: event_objective || '',
+      event_highlights: event_highlights || '',
+      event_agenda: event_agenda || '',
+      event_technologies: event_technologies || '',
+      event_coordinators: event_coordinators || '',
+      event_stats: event_stats || '',
+      event_gallery: '',
+      related_events: ''
+    };
+
+    // Gallery images (only for completed)
+    if (status === 'completed') {
+      let galleryHtml = '';
+      if (galleryImages.length > 0) {
+        galleryHtml = galleryImages.slice(0, 4).map((img, i) => `<img src="${img}" alt="Gallery Image ${i+1}" style="max-width:150px; margin:5px;">`).join('\n');
+      } else if (image_path) {
+        galleryHtml = `<img src="${image_path}" alt="Gallery Image" style="max-width:150px; margin:5px;">`;
+      }
+      eventData.event_gallery = galleryHtml;
+    }
+
+    // Generate event page
+    const templatePath = path.join(__dirname, 'event-pages', 'event-template.html');
+    let template = fs.readFileSync(templatePath, 'utf8');
+    Object.keys(eventData).forEach(key => {
+      const regex = new RegExp(`{{${key}}}`, 'g');
+      template = template.replace(regex, eventData[key]);
+    });
+    const fileName = `event${event_id}.html`;
+    const outputPath = path.join(__dirname, 'event-pages', fileName);
+    fs.writeFileSync(outputPath, template, 'utf8');
+
+    // Update event_page_url in DB
+    const event_page_url = `./event-pages/${fileName}`;
+    await pool.execute('UPDATE events SET event_page_url=? WHERE id=?', [event_page_url, event_id]);
+
+    res.json({ id: event_id, message: 'Event added successfully', event_page_url });
   } catch (error) {
+    console.error('Error adding event:', error);
     res.status(500).json({ error: 'Failed to add event' });
   }
 });

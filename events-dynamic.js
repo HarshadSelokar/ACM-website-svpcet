@@ -49,7 +49,7 @@ function createEventCard(event) {
                     ` : ''}
                 </div>
                 <h3>${event.title}</h3>
-                <p>${event.description || 'No description available.'}</p>
+                <p>${event.event_short_description || event.short_description || 'No description available.'}</p>
                 ${event.event_page_url ? `
                 <a href="${event.event_page_url}" class="btn btn-outline">
                     View Details
